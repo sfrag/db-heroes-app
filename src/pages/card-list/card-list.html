@@ -1,0 +1,25 @@
+<!--
+  Generated template for the CardListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Card List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1>Listado de todas las cartas, necesita tener un buscador y un filtro por coleccion como en la web</h1>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let card of cards" col-3> 
+            <img [src]="card.url">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
