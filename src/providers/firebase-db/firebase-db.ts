@@ -16,6 +16,8 @@ export class FirebaseDbProvider {
     public auth: AuthProvider 
   ) {
     console.log('Hello FirebaseDbProvider Provider');
+
+    
   }
 
   guardarCartas(){
@@ -23,7 +25,7 @@ export class FirebaseDbProvider {
   }
 
   getCards(){
-    return this.afDB.list('/cards/SDBH6');
+    return this.afDB.list('/cards');
   }
 
 }
