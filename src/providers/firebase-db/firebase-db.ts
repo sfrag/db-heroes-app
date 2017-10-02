@@ -20,12 +20,19 @@ export class FirebaseDbProvider {
     
   }
 
-  guardarCartas(){
-
+  saveCard(card){
+    card.id = this.getCardId(card.id);
+    return this.afDB.database.ref('cards/' + this.auth.getUser() + '/' + card.id)
   }
 
+  // obtiene un listado de todas las cartas existentes en la base de datos
   getCards(){
     return this.afDB.list('/cards');
+  }
+
+
+  getCardId(card){
+    return this.afDB.object('/cards');
   }
 
 }
