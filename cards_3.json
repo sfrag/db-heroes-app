@@ -1,0 +1,26 @@
+{
+    "cards":{
+        "collection1":{
+            "name": "SDBH6",
+            "cards": [
+                {
+                    "name":"carta1",
+                    "url":"http://www.todoeduspain.com/SDBH6/SH6-01.png"
+                },
+                {
+                    "name":"carta2",
+                    "url":"http://www.todoeduspain.com/SDBH6/SH6-01.png"
+                }
+            ]
+       },  
+       "collection2":{
+            "name": "SDBH5",
+            "cards": [
+                {
+                    "name":"carta1",
+                    "url":"http://www.todoeduspain.com/SDBH5/SH5-01.png"
+                }
+            ]
+       }
+    } 
+}
