@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 import { AuthProvider } from '../providers/auth/auth';
+import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   templateUrl: 'app.html'
