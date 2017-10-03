@@ -4,12 +4,44 @@
             "name": "SDBH6",
             "cards": [
                 {
+                    "id":"SH6-01",
                     "name":"carta1",
                     "url":"http://www.todoeduspain.com/SDBH6/SH6-01.png"
                 },
                 {
+                    "id":"SH6-02",
                     "name":"carta2",
-                    "url":"http://www.todoeduspain.com/SDBH6/SH6-01.png"
+                    "url":"http://www.todoeduspain.com/SDBH6/SH6-02.png"
+                },
+                {
+                    "id":"SH6-03",
+                    "name":"carta2",
+                    "url":"http://www.todoeduspain.com/SDBH6/SH6-03.png"
+                },
+                {
+                    "id":"SH6-04",
+                    "name":"carta2",
+                    "url":"http://www.todoeduspain.com/SDBH6/SH6-04.png"
+                },
+                {
+                    "id":"SH6-05",
+                    "name":"carta2",
+                    "url":"http://www.todoeduspain.com/SDBH6/SH6-05.png"
+                },
+                {
+                    "id":"SH6-06",
+                    "name":"carta2",
+                    "url":"http://www.todoeduspain.com/SDBH6/SH6-06.png"
+                },
+                {
+                    "id":"SH6-07",
+                    "name":"carta2",
+                    "url":"http://www.todoeduspain.com/SDBH6/SH6-07.png"
+                },
+                {
+                    "id":"SH6-08",
+                    "name":"carta2",
+                    "url":"http://www.todoeduspain.com/SDBH6/SH6-08.png"
                 }
             ]
        },  
@@ -17,8 +49,44 @@
             "name": "SDBH5",
             "cards": [
                 {
+                    "id":"SH6-01",
                     "name":"carta1",
                     "url":"http://www.todoeduspain.com/SDBH5/SH5-01.png"
+                },
+                {
+                    "id":"SH6-02",
+                    "name":"carta1",
+                    "url":"http://www.todoeduspain.com/SDBH5/SH5-02.png"
+                },
+                {
+                    "id":"SH6-03",
+                    "name":"carta1",
+                    "url":"http://www.todoeduspain.com/SDBH5/SH5-03.png"
+                },
+                {
+                    "id":"SH6-04",
+                    "name":"carta1",
+                    "url":"http://www.todoeduspain.com/SDBH5/SH5-04.png"
+                },
+                {
+                    "id":"SH6-05",
+                    "name":"carta1",
+                    "url":"http://www.todoeduspain.com/SDBH5/SH5-05.png"
+                },
+                {
+                    "id":"SH6-06",
+                    "name":"carta1",
+                    "url":"http://www.todoeduspain.com/SDBH5/SH5-06.png"
+                },
+                {
+                    "id":"SH6-07",
+                    "name":"carta1",
+                    "url":"http://www.todoeduspain.com/SDBH5/SH5-07.png"
+                },
+                {
+                    "id":"SH6-08",
+                    "name":"carta1",
+                    "url":"http://www.todoeduspain.com/SDBH5/SH5-08.png"
                 }
             ]
        }
