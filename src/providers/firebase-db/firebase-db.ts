@@ -11,28 +11,30 @@ import { AuthProvider } from '../auth/auth';
 @Injectable()
 export class FirebaseDbProvider {
 
+  testeo: any;
+
   constructor(
     public afDB: AngularFireDatabase, 
-    public auth: AuthProvider 
+    public auth: AuthProvider
   ) {
     console.log('Hello FirebaseDbProvider Provider');
-
-    
   }
 
-  saveCard(card){
-    card.id = this.getCardId(card.id);
-    return this.afDB.database.ref('cards/' + this.auth.getUser() + '/' + card.id)
+  // guardamos la carta en la que hacemos click en la base de datos de los usuarios.
+  // cada carta la guardamos con su id para luego poder buscarla en la base de datos
+  // de todas las cartas.
+
+  saveCard(card_id){
+    return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + card_id).set(card_id);
+  }
+
+  getUserCards(){
+    return this.afDB.list('/users/'+this.auth.getUser());
   }
 
   // obtiene un listado de todas las cartas existentes en la base de datos
   getCards(){
     return this.afDB.list('/cards');
-  }
-
-
-  getCardId(card){
-    return this.afDB.object('/cards');
   }
 
 }
