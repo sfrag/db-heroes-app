@@ -20,6 +20,7 @@ export class CardListPage {
   ucards: any;
   counter: number;
   newer: boolean;
+  test2: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -63,7 +64,8 @@ export class CardListPage {
   }
 
   cardcounter(card){
-    card.counter = card.counter + 1;
+    this.test2 = this.dbhDb.getCardCount(card);
+    return this.test2;
   }
 
   ionViewDidEnter(){

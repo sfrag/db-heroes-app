@@ -35,7 +35,11 @@ export class FirebaseDbProvider {
   }
 
   getUserCards(){
-    return this.afDB.list('/users/'+this.auth.getUser());
+    return this.afDB.list('/users/' + this.auth.getUser());
+  }
+
+  getCardCount(card){
+    return this.afDB.object('/users/' + this.auth.getUser() + '/' + card.id);
   }
 
   // obtiene un listado de todas las cartas existentes en la base de datos
