@@ -18,12 +18,16 @@ export class CardListPage {
 
   cards: any;
   ucards: any;
+  counter: number;
+  newer: boolean;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private dbhDb: FirebaseDbProvider
   ) {
+    this.counter = 0;
+    this.newer = true;
   }
 
   ionViewDidLoad() {
@@ -33,17 +37,33 @@ export class CardListPage {
   // Comprobar si esto funciona correctamente
 
   savecard(card){
-    //Guardamos la carta
-    this.dbhDb.saveCard(card.id); //esto ya funciona
-    this.searchcard();
-  }
-
-  searchcard(){
-    //Si la carta no la teniamos, haremos una marca para saber que esa carta la tenemos
-    //Si la carta ya la tenemos no haremos nada 
+    //Preparamos una variable donde estaran las cartas
     this.dbhDb.getUserCards().subscribe(ucards=>{
       this.ucards = ucards;
     })
+    
+    let user_card = this.ucards;
+
+    // Si no tenemos guardada la carta la guardamos, si ya la tenemos llamamos a cardcounter para que la sume
+    
+    for(let i = 0;i<user_card.length; i++){
+      let test = user_card[i];
+      if(test.card == card.id){
+        this.newer = false;
+        this.cardcounter(card);
+        return;
+      }
+    }
+    if(this.newer){
+      this.dbhDb.saveCard(card.id, this.counter);
+    }
+    else{
+
+    }
+  }
+
+  cardcounter(card){
+    card.counter = card.counter + 1;
   }
 
   ionViewDidEnter(){

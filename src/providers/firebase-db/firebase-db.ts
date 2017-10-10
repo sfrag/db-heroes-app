@@ -24,8 +24,14 @@ export class FirebaseDbProvider {
   // cada carta la guardamos con su id para luego poder buscarla en la base de datos
   // de todas las cartas.
 
-  saveCard(card_id){
-    return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + card_id).set(card_id);
+  saveCard(card_id, counter){
+    this.countCards(card_id, counter);
+    return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + card_id + '/' + "card").set(card_id);
+    //return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + "counter").set(this.counter);
+  }
+
+  countCards(card_id, counter){
+    return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + card_id + '/' + "counter").set(counter);
   }
 
   getUserCards(){
