@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+
+import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
+
 import * as firebase from 'firebase/app';
 
 
@@ -11,6 +14,13 @@ import * as firebase from 'firebase/app';
 */
 @Injectable()
 export class AuthProvider {
+
+  constructor(
+    private afAuth: AngularFireAuth
+    //public cList: CardListPage // No es posible declarar este tipo de variable que hacer referencia a una pagina, parece que solo puede referenciar a bases de datos al ser provider
+  ) {
+    console.log('Hello AuthProvider Provider');
+  }
 
   // Registro de usuario
   registerUser(email:string, password:string){
@@ -35,6 +45,8 @@ export class AuthProvider {
 
   //Logout de usuario
   logout(){
+
+    //this.dbhDB.$Destroy();
     this.afAuth.auth.signOut().then(()=>{
       //hemos salido
     })
@@ -43,10 +55,6 @@ export class AuthProvider {
   //Obtenemos el id de usuario
   getUser(){
     return this.afAuth.auth.currentUser.uid;
-  }
-
-  constructor(private afAuth: AngularFireAuth) {
-    console.log('Hello AuthProvider Provider');
   }
 
 }

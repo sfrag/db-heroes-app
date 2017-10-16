@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
+import 'rxjs/add/operator/first';
+
 /**
  * Generated class for the CardListPage page.
  *
@@ -18,9 +20,11 @@ export class CardListPage {
 
   cards: any;
   ucards: any;
+  ucardscount: any;
   counter: number;
   newer: boolean;
   test2: any;
+
 
   constructor(
     public navCtrl: NavController, 
@@ -38,10 +42,6 @@ export class CardListPage {
   // Comprobar si esto funciona correctamente
 
   savecard(card){
-    //Preparamos una variable donde estaran las cartas
-    this.dbhDb.getUserCards().subscribe(ucards=>{
-      this.ucards = ucards;
-    })
     
     let user_card = this.ucards;
 
@@ -51,26 +51,44 @@ export class CardListPage {
       let test = user_card[i];
       if(test.card == card.id){
         this.newer = false;
-        this.cardcounter(card);
+        this.addcard(card);
         return;
       }
     }
     if(this.newer){
       this.dbhDb.saveCard(card.id, this.counter);
     }
-    else{
+  }
 
-    }
+  addcard(card){
+
   }
 
   cardcounter(card){
-    this.test2 = this.dbhDb.getCardCount(card);
-    return this.test2;
+    if(this.ucards != undefined){
+      this.test2 = this.ucards;
+      for(let i=0; i < this.test2.length; i++){
+        if(this.test2[i].card == card.id){
+          return this.test2[i].counter;
+        }
+      }
+    }
   }
 
-  ionViewDidEnter(){
+  /* ionViewDidEnter(){
     this.dbhDb.getCards().subscribe(cards=>{
       this.cards = cards;
+    }) */
+
+    ionViewDidEnter(){
+    this.dbhDb.getCards().first().subscribe(cards=>{
+      this.cards = cards;
+    })
+    
+    //Preparamos una variable donde estaran las cartas que tiene el usuario
+    this.dbhDb.getUserCards().first().subscribe(ucards=>{
+      this.ucards = ucards;
     })
   }
+
 }
