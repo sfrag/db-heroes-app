@@ -1,5 +1,5 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthProvider } from '../auth/auth';
 
 /*
@@ -12,6 +12,9 @@ import { AuthProvider } from '../auth/auth';
 export class FirebaseDbProvider {
 
   testeo: any;
+  usercads: any;
+  globalcards: any;
+  totalcards: any;
 
   constructor(
     public afDB: AngularFireDatabase, 
@@ -24,9 +27,9 @@ export class FirebaseDbProvider {
   // cada carta la guardamos con su id para luego poder buscarla en la base de datos
   // de todas las cartas.
 
-  saveCard(card_id, counter){
-    this.countCards(card_id, counter);
-    return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + card_id + '/' + "card").set(card_id);
+  saveCard(newcard){
+    //this.countCards(newcard.id, newcard.counter);
+    return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + newcard.id).set(newcard);
     //return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + "counter").set(this.counter);
   }
 
@@ -39,7 +42,7 @@ export class FirebaseDbProvider {
   }
 
   getCardCount(card){
-    return this.afDB.object('/users/' + this.auth.getUser() + '/' + card.id);
+    return this.afDB.list('/users/' + this.auth.getUser() + '/' + card.id);
   }
 
   // obtiene un listado de todas las cartas existentes en la base de datos

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
 import 'rxjs/add/operator/first';
@@ -20,10 +20,15 @@ export class CardListPage {
 
   cards: any;
   ucards: any;
+  processedcards: any;
   ucardscount: any;
   counter: number;
   newer: boolean;
   test2: any;
+  tonteria: any;
+  hola: any;
+  hola2: any;
+  subscription: any;
 
 
   constructor(
@@ -31,64 +36,83 @@ export class CardListPage {
     public navParams: NavParams,
     private dbhDb: FirebaseDbProvider
   ) {
-    this.counter = 0;
-    this.newer = true;
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CardListPage');
+    this.counter = 1;    
   }
 
   // Comprobar si esto funciona correctamente
 
   savecard(card){
     
+    this.newer = true;
     let user_card = this.ucards;
 
-    // Si no tenemos guardada la carta la guardamos, si ya la tenemos llamamos a cardcounter para que la sume
+    // Si ya la tenemos, solo actualizaremos el valor de counter
     
     for(let i = 0;i<user_card.length; i++){
       let test = user_card[i];
-      if(test.card == card.id){
+      if(test.id == card.id){
         this.newer = false;
-        this.addcard(card);
+        this.updatecounter(test);
         return;
       }
     }
-    if(this.newer){
-      this.dbhDb.saveCard(card.id, this.counter);
-    }
-  }
 
-  addcard(card){
-
-  }
-
-  cardcounter(card){
-    if(this.ucards != undefined){
-      this.test2 = this.ucards;
-      for(let i=0; i < this.test2.length; i++){
-        if(this.test2[i].card == card.id){
-          return this.test2[i].counter;
-        }
-      }
-    }
-  }
-
-  /* ionViewDidEnter(){
-    this.dbhDb.getCards().subscribe(cards=>{
-      this.cards = cards;
-    }) */
-
-    ionViewDidEnter(){
-    this.dbhDb.getCards().first().subscribe(cards=>{
-      this.cards = cards;
-    })
+    // Si la carta que queremos añadir es nueva, tenemos que añadir toda la carta a la base de datos de cartas de este usuario
     
-    //Preparamos una variable donde estaran las cartas que tiene el usuario
-    this.dbhDb.getUserCards().first().subscribe(ucards=>{
-      this.ucards = ucards;
-    })
+    if(this.newer){
+      let newcard = {}
+      newcard = {
+        collection: card.collection,
+        id: card.id,
+        counter: this.counter
+      }
+      this.dbhDb.saveCard(newcard);
+    }
+  }
+
+  updatecounter(card){
+    if(this.ucards != undefined){
+          this.ucardscount = card.counter;
+          this.ucardscount ++;
+          this.dbhDb.countCards(card.id,this.ucardscount);
+      }
+  }
+
+  ionViewDidEnter(){
+    console.log("DidEnter");
+    //Primero cargamos las cartas generales y si todo es correcto, cargamos las de usuario y si todo es correcto, generamos las processed
+    
+    this.dbhDb.getCards().first().subscribe(cards=>{  
+      this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
+        
+        this.ucards = ucards;
+        this.cards = cards;
+        this.processedcards = cards;
+
+        for(let i=0; i<this.ucards.length; i++){
+          var pilla = this.ucards[i];
+          for( let j=0; j<this.processedcards.length; j++){
+            var pilla2 = this.processedcards[j];
+            if(pilla.collection == pilla2.name){
+              console.log("Es de esta colección, busco dentro");
+              for(let k=0; k<pilla2.cards.length; k++){
+                var pilla3 = pilla2.cards[k];
+                if(pilla3.id == pilla.id){
+                  pilla3.counter = pilla.counter;
+                }
+              }
+            }
+          }
+        }
+      });
+    });
+
+  }
+
+  ngOnDestroy(){
+    if(this.subscription != undefined){
+      this.subscription.unsubscribe();
+    }
   }
 
 }

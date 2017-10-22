@@ -1,3 +1,5 @@
 node_modules/
 .sourcemaps/
-www/build/
+www/build
+www/build/0.js
+www/build/1.js
