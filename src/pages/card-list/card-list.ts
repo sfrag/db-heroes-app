@@ -109,6 +109,17 @@ export class CardListPage {
 
   }
 
+  getItems(ev){
+
+    let val = ev.target.value;
+
+    if(val && val.trim() != ''){
+      this.processedcards = this.processedcards.filter((tonto)=>{
+        return (tonto.toLowerCase().indexOf(val.toLowerCase())>-1)
+      })
+    }
+  }
+
   ngOnDestroy(){
     if(this.subscription != undefined){
       this.subscription.unsubscribe();

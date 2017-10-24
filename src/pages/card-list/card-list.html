@@ -15,24 +15,32 @@
 
 <ion-content padding>
   <h1>Listado de todas las cartas, necesita tener un buscador y un filtro por coleccion como en la web</h1>
-  <h3>Filtrado de las cartas por colección e id de carta</h3>
+  
+  <ion-searchbar (ionInput)="getItems($event)">
+    
+  </ion-searchbar>
+  
+  <ion-list>
+  
   <ion-grid>
     
       <ion-row *ngFor="let collection of cards">
         <div class="collection-title">{{collection.name}}</div>
-          <ion-col *ngFor="let cards of collection.cards"col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
+          <ion-col *ngFor="let fcards of collection.cards"col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
              
                 <button ion-button small class="tengui" (click)="savecard(cards)" >tengui</button>
-                <img class="card-size" [src]="cards.url">
+                <img class="card-size" [src]="fcards.url">
              
-            <p><strong>El id de la carta es: {{cards.id}}</strong></p>
+            <p><strong>El id de la carta es: {{fcards.id}}</strong></p>
             <p>Objeto que devuelve {{ucards}}</p>
             <p><strong>Descripción de la carta:</strong></p>
-            <p>{{cards.description}}</p>
-            <p>Card Counter:{{cards.counter}}</p>
+            <p>{{fcards.description}}</p>
+            <p>Card Counter:{{fcards.counter}}</p>
 
           </ion-col>
       </ion-row>
     
   </ion-grid>
+
+</ion-list>
 </ion-content>
