@@ -23,6 +23,19 @@ export class FirebaseDbProvider {
     console.log('Hello FirebaseDbProvider Provider');
   }
 
+  getUserCards(){
+    return this.afDB.list('/users/' + this.auth.getUser());
+  }
+
+  getCollections(){
+    return this.afDB.list('/collections');
+  }
+
+  // obtiene un listado de todas las cartas existentes en la base de datos
+  getCards(){
+    return this.afDB.list('/cards');
+  }
+
   // guardamos la carta en la que hacemos click en la base de datos de los usuarios.
   // cada carta la guardamos con su id para luego poder buscarla en la base de datos
   // de todas las cartas.
@@ -37,17 +50,8 @@ export class FirebaseDbProvider {
     return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + card_id + '/' + "counter").set(counter);
   }
 
-  getUserCards(){
-    return this.afDB.list('/users/' + this.auth.getUser());
-  }
-
   getCardCount(card){
     return this.afDB.list('/users/' + this.auth.getUser() + '/' + card.id);
-  }
-
-  // obtiene un listado de todas las cartas existentes en la base de datos
-  getCards(){
-    return this.afDB.list('/cards');
   }
 
 }
