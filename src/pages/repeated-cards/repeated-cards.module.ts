@@ -4,7 +4,7 @@ import { RepeatedCardsPage } from './repeated-cards';
 
 @NgModule({
   declarations: [
-    RepeatedCardsPage,
+    RepeatedCardsPage
   ],
   imports: [
     IonicPageModule.forChild(RepeatedCardsPage),

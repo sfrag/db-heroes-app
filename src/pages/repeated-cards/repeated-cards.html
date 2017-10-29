@@ -7,12 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Repeated Cards</ion-title>
+    <ion-title>Collections</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h1>Aquí estaran en un principio las cartas repetidas aunque quizas puede estar en la principal y sacarlas a través de filtros. Entonces en esta tab estaria todo lo referente a compartir las cartas.</h1>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let collection of collections" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
+        <img (click)="gotoCollection()" class="card-size" [src]="collection.url">     
+        <p><strong>El id de la colección: {{collection.id}}</strong></p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
