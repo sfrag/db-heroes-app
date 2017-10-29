@@ -1,0 +1,221 @@
+{
+  "collections" : {
+    "SDBH1":{
+      "description": "Primera carta de la colección SH7",
+      "id": "SDBH7",
+      "url" : "http://www.todoeduspain.com/SDBH1/cover.png"
+    },
+    "SDBH2":{
+      "description": "Segunda carta de la colección SH7",
+      "id": "SDBH2",
+      "url" : "http://www.todoeduspain.com/SDBH2/cover.png"
+    },
+    "SDBH3":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH3",
+      "url" : "http://www.todoeduspain.com/SDBH3/cover.png"
+    },
+    "SDBH4":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH4",
+      "url" : "http://www.todoeduspain.com/SDBH4/cover.png"
+    },
+    "SDBH5":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH5",
+      "url" : "http://www.todoeduspain.com/SDBH5/cover.png"
+    },
+    "SDBH6":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH6",
+      "url" : "http://www.todoeduspain.com/SDBH6/cover.png"
+    },
+    "SDBH7":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH7",
+      "url" : "http://www.todoeduspain.com/SDBH7/cover.png"
+    }
+
+  },
+
+  "cards" : {
+    "sh7-01":{
+      "collection": "SDBH7",
+      "counter": 0,
+      "description": "Primera carta de la colección SH7",
+      "id": "SH7-01",
+      "url" : "http://www.todoeduspain.com/SDBH7/SH7-01.png"
+    },
+    "sh7-02":{
+      "collection": "SDBH7",
+      "counter": 0,
+      "description": "Segunda carta de la colección SH7",
+      "id": "SH7-02",
+      "url" : "http://www.todoeduspain.com/SDBH7/SH7-02.png"
+    },
+    "sh7-03":{
+      "collection": "SDBH7",
+      "counter": 0,
+      "description": "Tercera carta de la colección SH7",
+      "id": "SH7-03",
+      "url" : "http://www.todoeduspain.com/SDBH7/SH7-03.png"
+    },
+    "collection1" : {
+      "cards" : [ {
+        "collection" : "SDBH6",
+        "counter" : 0,
+        "description" : "Carta de Goku en SSJ2. Esta carta puede fusionarse con vegeta",
+        "id" : "SH6-01",
+        "url" : "http://www.todoeduspain.com/SDBH6/SH6-01.png"
+      }, {
+        "collection" : "SDBH6",
+        "counter" : 0,
+        "description" : "Carta de Gohan SSJ2. Lucha contra Cell",
+        "id" : "SH6-02",
+        "url" : "http://www.todoeduspain.com/SDBH6/SH6-02.png"
+      }, {
+        "collection" : "SDBH6",
+        "counter" : 0,
+        "description" : "Gohan adulto haciendo un Kamehame",
+        "id" : "SH6-03",
+        "url" : "http://www.todoeduspain.com/SDBH6/SH6-03.png"
+      }, {
+        "collection" : "SDBH6",
+        "counter" : 0,
+        "id" : "SH6-04",
+        "url" : "http://www.todoeduspain.com/SDBH6/SH6-04.png"
+      }, {
+        "collection" : "SDBH6",
+        "counter" : 0,
+        "id" : "SH6-05",
+        "url" : "http://www.todoeduspain.com/SDBH6/SH6-05.png"
+      }, {
+        "collection" : "SDBH6",
+        "counter" : 0,
+        "id" : "SH6-06",
+        "url" : "http://www.todoeduspain.com/SDBH6/SH6-06.png"
+      }, {
+        "collection" : "SDBH6",
+        "counter" : 0,
+        "id" : "SH6-07",
+        "url" : "http://www.todoeduspain.com/SDBH6/SH6-07.png"
+      }, {
+        "collection" : "SDBH6",
+        "counter" : 0,
+        "id" : "SH6-08",
+        "url" : "http://www.todoeduspain.com/SDBH6/SH6-08.png"
+      } ],
+      "name" : "SDBH6"
+    },
+    "collection2" : {
+      "cards" : [ {
+        "collection" : "SDBH5",
+        "counter" : 0,
+        "id" : "SH5-01",
+        "url" : "http://www.todoeduspain.com/SDBH5/SH5-01.png"
+      }, {
+        "collection" : "SDBH5",
+        "counter" : 0,
+        "id" : "SH5-02",
+        "url" : "http://www.todoeduspain.com/SDBH5/SH5-02.png"
+      }, {
+        "collection" : "SDBH5",
+        "counter" : 0,
+        "id" : "SH5-03",
+        "url" : "http://www.todoeduspain.com/SDBH5/SH5-03.png"
+      }, {
+        "collection" : "SDBH5",
+        "counter" : 0,
+        "id" : "SH5-04",
+        "url" : "http://www.todoeduspain.com/SDBH5/SH5-04.png"
+      }, {
+        "collection" : "SDBH5",
+        "counter" : 0,
+        "id" : "SH5-05",
+        "url" : "http://www.todoeduspain.com/SDBH5/SH5-05.png"
+      }, {
+        "collection" : "SDBH5",
+        "counter" : 0,
+        "id" : "SH5-06",
+        "url" : "http://www.todoeduspain.com/SDBH5/SH5-06.png"
+      }, {
+        "collection" : "SDBH5",
+        "counter" : 0,
+        "id" : "SH5-07",
+        "url" : "http://www.todoeduspain.com/SDBH5/SH5-07.png"
+      }, {
+        "collection" : "SDBH5",
+        "counter" : 0,
+        "id" : "SH5-08",
+        "url" : "http://www.todoeduspain.com/SDBH5/SH5-08.png"
+      } ],
+      "name" : "SDBH5"
+    }
+  },
+  "users" : {
+    "7xJlu6wkOldWH1EKP35njj1PQgG3" : {
+      "SH6-03" : {
+        "collection" : "SDBH6",
+        "counter" : 0,
+        "id" : "SH6-03"
+      }
+    },
+    "Rf8IekTmitbpnJMS9pvmEneMy9p1" : {
+      "SH5-01" : {
+        "collection" : "SDBH5",
+        "counter" : 1,
+        "id" : "SH5-01"
+      },
+      "SH5-02" : {
+        "collection" : "SDBH5",
+        "counter" : 7,
+        "id" : "SH5-02"
+      },
+      "SH5-03" : {
+        "collection" : "SDBH5",
+        "counter" : 2,
+        "id" : "SH5-03"
+      },
+      "SH5-04" : {
+        "collection" : "SDBH5",
+        "counter" : 1,
+        "id" : "SH5-04"
+      },
+      "SH5-05" : {
+        "collection" : "SDBH5",
+        "counter" : 1,
+        "id" : "SH5-05"
+      },
+      "SH5-06" : {
+        "collection" : "SDBH5",
+        "counter" : 1,
+        "id" : "SH5-06"
+      },
+      "SH5-07" : {
+        "collection" : "SDBH5",
+        "counter" : 1,
+        "id" : "SH5-07"
+      },
+      "SH5-08" : {
+        "collection" : "SDBH5",
+        "counter" : 2,
+        "id" : "SH5-08"
+      },
+      "SH6-01" : {
+        "collection" : "SDBH6",
+        "counter" : 3,
+        "id" : "SH6-01"
+      },
+      "SH6-05" : {
+        "collection" : "SDBH6",
+        "counter" : 1,
+        "id" : "SH6-05"
+      },
+      "SH6-08" : {
+        "collection" : "SDBH6",
+        "counter" : 3,
+        "id" : "SH6-08"
+      }
+    }
+  }
+}

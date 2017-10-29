@@ -1,0 +1,40 @@
+{
+  "collections" : {
+    "SDBH1":{
+      "description": "Primera carta de la colección SH7",
+      "id": "SDBH7",
+      "url" : "http://www.todoeduspain.com/SDBH1/cover.png"
+    },
+    "SDBH2":{
+      "description": "Segunda carta de la colección SH7",
+      "id": "SDBH2",
+      "url" : "http://www.todoeduspain.com/SDBH2/cover.png"
+    },
+    "SDBH3":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH3",
+      "url" : "http://www.todoeduspain.com/SDBH3/cover.png"
+    },
+    "SDBH4":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH4",
+      "url" : "http://www.todoeduspain.com/SDBH4/cover.png"
+    },
+    "SDBH5":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH5",
+      "url" : "http://www.todoeduspain.com/SDBH5/cover.png"
+    },
+    "SDBH6":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH6",
+      "url" : "http://www.todoeduspain.com/SDBH6/cover.png"
+    },
+    "SDBH7":{
+      "description": "Tercera carta de la colección SH7",
+      "id": "SDBH7",
+      "url" : "http://www.todoeduspain.com/SDBH7/cover.png"
+    }
+
+  }
+}
