@@ -5,6 +5,7 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
 
 import { CardListPage } from '../card-list/card-list';
+import { Sdbh7Page } from '../sdbh7/sdbh7';
 
 /**
  * Generated class for the RepeatedCardsPage page.
@@ -27,9 +28,7 @@ export class RepeatedCardsPage {
   }
 
   gotoCollection(idCollection){
-    
-      this.navCtrl.push(CardListPage);
-    
+      this.navCtrl.push(idCollection+'Page');
   }
 
   ionViewDidLoad() {

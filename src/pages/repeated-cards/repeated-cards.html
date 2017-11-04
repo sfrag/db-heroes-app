@@ -17,7 +17,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let collection of collections" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
-        <img (click)="gotoCollection()" class="card-size" [src]="collection.url">     
+        <img (click)="gotoCollection(collection.id)" class="card-size" [src]="collection.url">     
         <p><strong>El id de la colección: {{collection.id}}</strong></p>
       </ion-col>
     </ion-row>

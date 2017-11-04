@@ -12,9 +12,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-//pages
-import { CardListPage } from '../pages/card-list/card-list'
-
+//pages -- revisar esto porque creo que esta mal y se tiene que eliminar como las otras paginas y solo ponerlo en el modulo de su carpeta
+import { CardListPage } from '../pages/card-list/card-list';
 
 var firebaseConfig = {
       apiKey: "AIzaSyDyq4hUe4NJq1GIMqVbIhlisZ1-m-AhMMQ",
@@ -27,7 +26,8 @@ var firebaseConfig = {
 
 @NgModule({
   declarations: [
-    MyApp, CardListPage
+    MyApp, 
+    CardListPage,
   ],
   imports: [
     BrowserModule,
@@ -35,19 +35,11 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
-    
-    /* IonicModule.forRoot(MyApp, {
-      statusbarPadding: true,
-     },
-    {
-      links: [
-        { component: CardListPage, name: 'CardListPage', segment: 'card-list-page' }
-      ]
-    }) */
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp, CardListPage
+    MyApp, 
+    CardListPage,
   ],
   providers: [
     StatusBar,
