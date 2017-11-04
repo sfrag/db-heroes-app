@@ -24,10 +24,6 @@ export class CardListPage {
   ucardscount: any;
   counter: number;
   newer: boolean;
-  test2: any;
-  tonteria: any;
-  hola: any;
-  hola2: any;
   subscription: any;
 
 
