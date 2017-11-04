@@ -5,7 +5,7 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
 
 /**
- * Generated class for the Sdbh4Page page.
+ * Generated class for the Sdbh2Page page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -13,10 +13,10 @@ import 'rxjs/add/operator/first';
 
 @IonicPage()
 @Component({
-  selector: 'page-sdbh4',
-  templateUrl: 'sdbh4.html',
+  selector: 'page-sdbh2',
+  templateUrl: 'sdbh2.html',
 })
-export class Sdbh4Page {
+export class Sdbh2Page {
 
   cards: any;
   ucards: any;
@@ -71,13 +71,13 @@ export class Sdbh4Page {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Sdbh4Page');
+    console.log('ionViewDidLoad Sdbh2Page');
 
     this.dbhDb.getCards().first().subscribe(cards=>{  
       this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
         
         this.ucards = ucards;
-        this.cards = cards[4].cards;
+        this.cards = cards[2].cards;
         this.processedcards = cards;
 
         for(let i=0; i<this.ucards.length; i++){
@@ -97,8 +97,8 @@ export class Sdbh4Page {
         }
       });
     });
-
   }
+
   ngOnDestroy(){
     if(this.subscription != undefined){
       this.subscription.unsubscribe();
