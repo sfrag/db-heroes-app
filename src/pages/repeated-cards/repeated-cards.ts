@@ -4,9 +4,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
 
-import { CardListPage } from '../card-list/card-list';
-import { Sdbh7Page } from '../sdbh7/sdbh7';
-
 /**
  * Generated class for the RepeatedCardsPage page.
  *
@@ -20,21 +17,30 @@ import { Sdbh7Page } from '../sdbh7/sdbh7';
   templateUrl: 'repeated-cards.html',
 })
 export class RepeatedCardsPage {
-  collections: any;
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private dbhDb: FirebaseDbProvider) {
   }
 
+  collections: any;
+  subscription: any;
+
   gotoCollection(idCollection){
       this.navCtrl.push(idCollection+'Page');
   }
 
   ionViewDidLoad() {
-    this.dbhDb.getCollections().subscribe(collections=>{
+    this.dbhDb.getCollections().first().subscribe(collections=>{
       this.collections = collections;
     });
+  }
+  
+  ngOnDestroy(){
+    if(this.subscription != undefined){
+      this.subscription.unsubscribe();
+    }
   }
 
 }
