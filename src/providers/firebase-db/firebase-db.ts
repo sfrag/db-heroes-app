@@ -46,6 +46,10 @@ export class FirebaseDbProvider {
     //return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + "counter").set(this.counter);
   }
 
+  public deleteCard(card){
+    this.afDB.database.ref('users/' + this.auth.getUser() + '/' + card.id).remove();
+  }
+  
   countCards(card_id, counter){
     return this.afDB.database.ref('users/' + this.auth.getUser() + '/' + card_id + '/' + "counter").set(counter);
   }
