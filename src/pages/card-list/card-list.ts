@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
 import 'rxjs/add/operator/first';
+import * as _ from 'lodash';
 
 /**
  * Generated class for the CardListPage page.
@@ -18,6 +19,14 @@ import 'rxjs/add/operator/first';
 })
 export class CardListPage {
 
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private dbhDb: FirebaseDbProvider
+  ) {   
+    this.counter = 1; 
+  }
+
   cards: any;
   ucards: any;
   processedcards: any;
@@ -25,17 +34,34 @@ export class CardListPage {
   counter: number;
   newer: boolean;
   subscription: any;
+  filteredCards: any;
 
+  // filter-able properties
+  id: string;
+  
+  /// Active filter rules
+  filters = {}
 
-  constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams,
-    private dbhDb: FirebaseDbProvider
-  ) {
-    this.counter = 1;    
+  getItems(ev){
+    
+    /* let val = ev.target.value;
+
+    if(val && val.trim() != ''){
+      this.processedcards = this.processedcards.filter((tonto)=>{
+        return (tonto.toLowerCase().indexOf(val.toLowerCase())>-1)
+      })
+    } */
   }
 
-  // Comprobar si esto funciona correctamente
+  private applyFilters() {
+    this.filteredCards = _.filter(this.cards, _.conforms(this.filters) )
+  }
+
+  /// filter property by equality to rule
+  filterExact(property: string, rule: any) {
+    this.filters[property] = val => _.includes(val, rule)
+    this.applyFilters()
+  }
 
   savecard(card){
     
@@ -74,15 +100,14 @@ export class CardListPage {
       }
   }
 
-  ionViewDidEnter(){
-    console.log("DidEnter");
-    //Primero cargamos las cartas generales y si todo es correcto, cargamos las de usuario y si todo es correcto, generamos las processed
+  ionViewDidEnter() {
+    console.log('ionViewDidLoad Sdbh7Page');
     
     this.dbhDb.getCards().first().subscribe(cards=>{  
       this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
         
         this.ucards = ucards;
-        this.cards = cards;
+        this.cards = (cards[1].cards).concat(cards[2].cards);
         this.processedcards = cards;
 
         for(let i=0; i<this.ucards.length; i++){
@@ -102,18 +127,7 @@ export class CardListPage {
         }
       });
     });
-
-  }
-
-  getItems(ev){
-
-    /* let val = ev.target.value;
-
-    if(val && val.trim() != ''){
-      this.processedcards = this.processedcards.filter((tonto)=>{
-        return (tonto.toLowerCase().indexOf(val.toLowerCase())>-1)
-      })
-    } */
+    this.applyFilters();
   }
 
   ngOnDestroy(){
