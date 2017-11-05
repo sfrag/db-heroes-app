@@ -13,7 +13,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 //pages -- revisar esto porque creo que esta mal y se tiene que eliminar como las otras paginas y solo ponerlo en el modulo de su carpeta
-import { CardListPage } from '../pages/card-list/card-list';
 
 var firebaseConfig = {
       apiKey: "AIzaSyDyq4hUe4NJq1GIMqVbIhlisZ1-m-AhMMQ",
@@ -27,7 +26,6 @@ var firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp, 
-    CardListPage,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +37,6 @@ var firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp, 
-    CardListPage,
   ],
   providers: [
     StatusBar,
