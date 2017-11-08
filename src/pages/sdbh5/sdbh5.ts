@@ -25,14 +25,20 @@ export class Sdbh5Page {
   newer: boolean;
   subscription: any;
 
+  // esta variable indicara si estamos eliminando o añadiendo una carta
+  deleting: boolean;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private dbhDb: FirebaseDbProvider) {
-      this.counter = 1;
+    private dbhDb: FirebaseDbProvider 
+  ) {
+    this.counter = 1;
   }
+
   savecard(card){
-    
+
+    this.deleting = false;
     this.newer = true;
     let user_card = this.ucards;
 
@@ -60,11 +66,45 @@ export class Sdbh5Page {
     }
   }
 
+  deletecard(card){
+    
+    this.deleting = true;
+    let user_card = this.ucards;
+
+    for(let i = 0;i<user_card.length; i++){
+      let test = user_card[i];
+      if(test.id == card.id){
+        this.updatecounter(test);
+        return;
+      }
+    }
+  }
+
   updatecounter(card){
     if(this.ucards != undefined){
           this.ucardscount = card.counter;
-          this.ucardscount ++;
-          this.dbhDb.countCards(card.id,this.ucardscount);
+          if(this.deleting == false){
+            this.ucardscount ++;
+            this.dbhDb.countCards(card.id,this.ucardscount);
+          }
+          else if(this.deleting == true){
+            // mientras el número de cartas que tengamos sea mayor que 1 simplemente restaremos el contador
+            if(this.ucardscount>1){
+              this.ucardscount --;
+              this.dbhDb.countCards(card.id,this.ucardscount);
+            }
+            // si el contador de cartas es 1 y eliminamos uno mas significa que ya no tenemos la carta
+            // perder una carta es algo extraño pero podría suceder si el usuario se ha equivocado
+            // en este caso sería interesante mostrar una alerta indicanto que la carta se va a borrar
+            // de la base de datos y si lo acepta, la carta se borrará de la base de datos del usuario
+            else if(this.ucardscount == 1){
+              this.ucardscount --;
+              this.dbhDb.countCards(card.id,this.ucardscount);
+              this.dbhDb.deleteCard(card);
+            }
+            
+          }
+          
       }
   }
 
