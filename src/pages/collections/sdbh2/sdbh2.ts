@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
+import { FirebaseDbProvider } from '../../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
 
 /**
- * Generated class for the Sdbh1Page page.
+ * Generated class for the Sdbh2Page page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -13,10 +13,10 @@ import 'rxjs/add/operator/first';
 
 @IonicPage()
 @Component({
-  selector: 'page-sdbh1',
-  templateUrl: 'sdbh1.html',
+  selector: 'page-sdbh2',
+  templateUrl: 'sdbh2.html',
 })
-export class Sdbh1Page {
+export class Sdbh2Page {
 
   cards: any;
   ucards: any;
@@ -110,13 +110,13 @@ export class Sdbh1Page {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Sdbh1Page');
+    console.log('ionViewDidLoad Sdbh2Page');
 
     this.dbhDb.getCards().first().subscribe(cards=>{  
       this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
         
         this.ucards = ucards;
-        this.cards = cards[1].cards;
+        this.cards = cards[2].cards;
         this.processedcards = cards;
 
         for(let i=0; i<this.ucards.length; i++){
@@ -136,7 +136,6 @@ export class Sdbh1Page {
         }
       });
     });
-    
   }
 
   ngOnDestroy(){
@@ -144,4 +143,5 @@ export class Sdbh1Page {
       this.subscription.unsubscribe();
     }
   }
+
 }
