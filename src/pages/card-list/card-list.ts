@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
 import 'rxjs/add/operator/first';
@@ -22,7 +22,8 @@ export class CardListPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private dbhDb: FirebaseDbProvider
+    private dbhDb: FirebaseDbProvider,
+    public loadingCtrl: LoadingController
   ) {   
     this.counter = 1; 
   }
@@ -51,8 +52,21 @@ export class CardListPage {
 
   /// filter property by equality to rule
   filterExact(property: string, rule: any) {
+    this.loadcards();
     this.filters[property] = val => _.includes(val, rule)
     this.applyFilters()
+  }
+
+  presentLoadingDefault() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+    loading.present();
+  
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
   }
 
   savecard(card){
@@ -100,6 +114,7 @@ export class CardListPage {
   }
 
   updatecounter(card){
+    this.presentLoadingDefault();
     if(this.ucards != undefined){
           this.ucardscount = card.counter;
           if(this.deleting == false){
@@ -127,7 +142,7 @@ export class CardListPage {
       }
   }
 
-  ionViewDidEnter() {
+  loadcards() {
     console.log('ionViewDidLoad Sdbh7Page');
     
     this.dbhDb.getCards().first().subscribe(cards=>{  
@@ -154,7 +169,7 @@ export class CardListPage {
         }
       });
     });
-    this.applyFilters();
+    //this.applyFilters();
   }
 
   ngOnDestroy(){
