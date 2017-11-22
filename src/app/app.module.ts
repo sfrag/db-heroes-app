@@ -5,6 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+
+import { CardListPage } from '../pages/card-list/card-list';
+import { RepeatedCardsPage } from '../pages/repeated-cards/repeated-cards';
+import { InfoPage } from '../pages/info/info';
+
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 import { AuthProvider } from '../providers/auth/auth';
 
@@ -25,7 +30,10 @@ var firebaseConfig = {
 
 @NgModule({
   declarations: [
-    MyApp, 
+    MyApp,
+    CardListPage,
+    RepeatedCardsPage,
+    InfoPage 
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,10 @@ var firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp, 
+    MyApp,
+    CardListPage,
+    RepeatedCardsPage,
+    InfoPage 
   ],
   providers: [
     StatusBar,

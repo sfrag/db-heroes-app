@@ -1,3 +1,56 @@
 page-login {
-
+    ion-content{
+        background: -moz-linear-gradient(45deg, rgba(255,206,122,1) 0%, rgba(255,56,56,1) 100%); /* ff3.6+ */
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,206,122,1)), color-stop(100%, rgba(255,56,56,1))); /* safari4+,chrome */
+        background: -webkit-linear-gradient(45deg, rgba(255,206,122,1) 0%, rgba(255,56,56,1) 100%); /* safari5.1+,chrome10+ */
+        background: -o-linear-gradient(45deg, rgba(255,206,122,1) 0%, rgba(255,56,56,1) 100%); /* opera 11.10+ */
+        background: -ms-linear-gradient(45deg, rgba(255,206,122,1) 0%, rgba(255,56,56,1) 100%); /* ie10+ */
+        background: linear-gradient(45deg, rgba(255,206,122,1) 0%, rgba(255,56,56,1) 100%); /* w3c */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF3838', endColorstr='#FFCE7A',GradientType=1 ); /* ie6-9 */
+        .row{
+            padding-top: 20px;
+        }
+    }
+    ion-list{
+        color: #4E546D;
+        border-radius: 5px;
+        border-top: solid 5px rgb(255, 153, 0);
+        background: #35394a; /* Old browsers */
+        background: -moz-linear-gradient(45deg,  #35394a 0%, #1f222e 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#35394a), color-stop(100%,#1f222e)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(45deg,  #35394a 0%,#1f222e 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(45deg,  #35394a 0%,#1f222e 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(45deg,  #35394a 0%,#1f222e 100%); /* IE10+ */
+        background: linear-gradient(45deg,  #35394a 0%,#1f222e 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35394a', endColorstr='#1f222e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        ion-item{
+            background-color: transparent !important;
+        }
+        h6{
+            font-size: 14px;
+            color: lightcyan;
+            padding: 15px;
+        }
+    }
+    ion-label{
+        color: #4E546D;
+        font-size: 14px;
+    }
+    ion-input{
+        color: lightcyan;
+        font-size: 14px
+    }
+    button{
+        font-size: 12px !important;
+        color: rgb(255, 136, 67) !important;
+        background-color: transparent !important;
+        border: 1px solid rgb(255, 136, 67);
+        border-radius: 50px !important;
+    }
+    img{
+        width: 150px;
+        height: 150px;
+        display: block;
+        margin: 0 auto;
+    }
 }
