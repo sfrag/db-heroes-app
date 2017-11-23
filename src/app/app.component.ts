@@ -15,6 +15,8 @@ import { InfoPage } from '../pages/info/info';
 })
 export class MyApp {
   //rootPage:any = 'DhbTabsPage';
+  @ViewChild(Nav) nav: Nav;
+  
   rootPage:any = 'LoginPage';
 
   pages: Array<{title: string, component: any}>;
@@ -28,8 +30,10 @@ export class MyApp {
       this.initializeApp();
 
       this.pages = [
-
-      ]
+        { title: 'Collections', component: RepeatedCardsPage },
+        { title: 'Searcher', component: CardListPage },
+        { title: 'Info', component: InfoPage}
+      ];
 
     }
 
@@ -48,6 +52,12 @@ export class MyApp {
         this.statusBar.styleDefault();
         this.splashScreen.hide();
       });
+    }
+
+    openPage(page) {
+      // Reset the content nav to have just this page
+      // we wouldn't want the back button to show in this scenario
+      this.nav.setRoot(page.component);
     }
 }
 
