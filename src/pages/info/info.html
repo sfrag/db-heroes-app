@@ -9,11 +9,20 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Card Searcher</ion-title>
+    <ion-title>My collection info</ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <button ion-button block (click)="cerrarSesion()">Cerrar Sesión</button>
+  <h2>
+    <h5>Total number of collections</h5>
+    <h2>{{numberofCollections}}</h2>
+    <h5>Número de colecciones completadas</h5>
+    <h2>{{numberofCollections}}</h2>
+    <h5>Colección{{collection}}</h5>
+    <h2>"{{TotalCards}}"  /  "{{userCards}}"</h2>
+    <ion-row>
+        <ion-col></ion-col>
+    </ion-row>
+  </h2>
 </ion-content>
