@@ -2,4 +2,17 @@ page-repeated-cards {
     .card-size{
         width: 100%;
     }
+    .collection-id{
+        background-color: aqua;
+        font-family: Roboto;
+        text-transform: uppercase;
+        font-weight: 800;
+        text-align: center;
+        font-size: 24px;
+        position: absolute;
+        border-radius: 2px;
+        bottom: 90px;
+        left: 0;
+        width: 70%;
+    }
 }
