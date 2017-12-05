@@ -66,7 +66,7 @@ export class CardListPage {
   
     setTimeout(() => {
       loading.dismiss();
-    }, 5000);
+    }, 1000);
   }
 
   savecard(card){
