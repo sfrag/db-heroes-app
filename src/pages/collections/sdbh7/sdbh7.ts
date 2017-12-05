@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 
 import { FirebaseDbProvider } from '../../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
+
+import { CollectionsPopoverPage } from '../../collections-popover/collections-popover';
 
 /**
  * Generated class for the Sdbh7Page page.
@@ -32,7 +34,8 @@ export class Sdbh7Page {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private dbhDb: FirebaseDbProvider
+    private dbhDb: FirebaseDbProvider,
+    public popoverCtrl: PopoverController
     ) {
       this.counter = 1;
   }
@@ -107,6 +110,13 @@ export class Sdbh7Page {
           }
           
       }
+  }
+
+  showPopover(event){
+    let popover = this.popoverCtrl.create(CollectionsPopoverPage);
+    popover.present({
+      ev: event
+    });
   }
 
   ionViewDidEnter() {
