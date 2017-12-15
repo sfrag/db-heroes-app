@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MenuController } from 'ionic-angular';
 
 import { CardListPage } from '../card-list/card-list';
 import { RepeatedCardsPage } from '../repeated-cards/repeated-cards';
 import { InfoPage } from '../info/info';
+
 /**
  * Generated class for the DbhMenuPage page.
  *
@@ -31,6 +31,10 @@ export class DbhMenuPage {
       this.collections = RepeatedCardsPage;
       this.cardsearch = CardListPage;
       this.collectionsinfo = InfoPage;
+  }
+
+  gotoPage(page){
+    this.navCtrl.push(page);
   }
 
   ionViewDidLoad() {
