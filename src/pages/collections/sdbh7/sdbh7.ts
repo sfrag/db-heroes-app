@@ -22,11 +22,13 @@ export class Sdbh7Page {
   
   cards: any;
   ucards: any;
+  repeatedcards: any;
   processedcards: any;
   ucardscount: any;
   counter: number;
   newer: boolean;
   subscription: any;
+  cardswapper: string;
 
   // esta variable indicara si estamos eliminando o añadiendo una carta
   deleting: boolean;
@@ -38,17 +40,19 @@ export class Sdbh7Page {
     public popoverCtrl: PopoverController
     ) {
       this.counter = 1;
+      this.cardswapper = "all";
+      this.repeatedcards = [];
   }
 
   savecard(card){
-
+    
     this.deleting = false;
     this.newer = true;
     let user_card = this.ucards;
 
     // Si ya la tenemos, solo actualizaremos el valor de counter
     
-    for(let i = 0;i<user_card.length; i++){
+    for(let i=0; i<user_card.length; i++){
       let test = user_card[i];
       if(test.id == card.id){
         this.newer = false;
@@ -68,6 +72,16 @@ export class Sdbh7Page {
       }
       this.dbhDb.saveCard(newcard);
     }
+  }
+
+  showrepeatedcards(event){
+    this.repeatedcards = [];
+    for (let i=0; i<this.cards.length; i++){
+      if(this.cards[i].counter > 1){
+        this.repeatedcards.push(this.cards[i]);
+      }
+    }
+
   }
 
   deletecard(card){
@@ -127,6 +141,7 @@ export class Sdbh7Page {
         
         this.ucards = ucards;
         this.cards = cards[7].cards;
+        
         this.processedcards = cards;
 
         for(let i=0; i<this.ucards.length; i++){
