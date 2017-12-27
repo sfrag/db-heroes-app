@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>144947304291-9jja5601qb34146jtcr9gt6v12e6r34q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.144947304291-9jja5601qb34146jtcr9gt6v12e6r34q</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCXWeMy_udzHR3DHgdxQwne5Px8L6qBQRI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>144947304291</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dbhcc.starter</string>
+	<key>PROJECT_ID</key>
+	<string>dbhcarcollector</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dbhcarcollector.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:144947304291:ios:e9fca07cc6e20b6a</string>
+	<key>DATABASE_URL</key>
+	<string>https://dbhcarcollector.firebaseio.com</string>
+</dict>
+</plist>
