@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { CardListPage } from '../pages/card-list/card-list';
 import { RepeatedCardsPage } from '../pages/repeated-cards/repeated-cards';
 import { InfoPage } from '../pages/info/info';
+import { CollectionsPopoverPage } from '../pages/collections-popover/collections-popover';
 
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 import { AuthProvider } from '../providers/auth/auth';
@@ -16,6 +17,8 @@ import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { FCM } from '@ionic-native/fcm';
 
 //pages -- revisar esto porque creo que esta mal y se tiene que eliminar como las otras paginas y solo ponerlo en el modulo de su carpeta
 
@@ -33,6 +36,7 @@ var firebaseConfig = {
     MyApp,
     CardListPage,
     RepeatedCardsPage,
+    CollectionsPopoverPage,
     InfoPage 
   ],
   imports: [
@@ -47,6 +51,7 @@ var firebaseConfig = {
     MyApp,
     CardListPage,
     RepeatedCardsPage,
+    CollectionsPopoverPage,
     InfoPage 
   ],
   providers: [
@@ -54,7 +59,8 @@ var firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseDbProvider,
-    AuthProvider
+    AuthProvider,
+    FCM
   ]
 })
 export class AppModule {}
