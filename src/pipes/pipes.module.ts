@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CardfilterPipe } from './../pipes/cardfilter/cardfilter';
+import { RepeatedCardsPipe } from './../pipes/repeated-cards/repeated-cards';
 @NgModule({
-	declarations: [CardfilterPipe],
+	declarations: [RepeatedCardsPipe],
 	imports: [],
-	exports: [CardfilterPipe]
+	exports: [RepeatedCardsPipe]
 })
 export class PipesModule {}
