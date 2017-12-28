@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { CardListPage } from '../card-list/card-list';
+import { CardListPage } from '../card-search/card-search';
 import { RepeatedCardsPage } from '../repeated-cards/repeated-cards';
 import { InfoPage } from '../info/info';
 

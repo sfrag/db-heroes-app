@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 
-import { CardListPage } from '../pages/card-list/card-list';
+import { CardListPage } from '../pages/card-search/card-search';
 import { RepeatedCardsPage } from '../pages/repeated-cards/repeated-cards';
 import { InfoPage } from '../pages/info/info';
 import { CollectionsPopoverPage } from '../pages/collections-popover/collections-popover';

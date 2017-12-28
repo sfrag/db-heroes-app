@@ -14,8 +14,8 @@ import * as _ from 'lodash';
 
 @IonicPage()
 @Component({
-  selector: 'page-card-list',
-  templateUrl: 'card-list.html',
+  selector: 'page-card-search',
+  templateUrl: 'card-search.html',
 })
 export class CardListPage {
 

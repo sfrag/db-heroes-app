@@ -9,7 +9,7 @@ import { FCM } from '@ionic-native/fcm';
 
 import { AuthProvider } from '../providers/auth/auth';
 
-import { CardListPage } from '../pages/card-list/card-list';
+import { CardListPage } from '../pages/card-search/card-search';
 import { RepeatedCardsPage } from '../pages/repeated-cards/repeated-cards';
 import { InfoPage } from '../pages/info/info';
 import { DbhMenuPage } from '../pages/dbh-menu/dbh-menu';

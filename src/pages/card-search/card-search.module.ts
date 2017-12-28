@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { CardListPage } from './card-list';
+import { CardListPage } from './card-search';
 
 @NgModule({
   declarations: [
