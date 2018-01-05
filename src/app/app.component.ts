@@ -9,7 +9,7 @@ import { FCM } from '@ionic-native/fcm';
 
 import { AuthProvider } from '../providers/auth/auth';
 
-import { CardListPage } from '../pages/card-search/card-search';
+import { CardSearchPage } from '../pages/card-search/card-search';
 import { RepeatedCardsPage } from '../pages/repeated-cards/repeated-cards';
 import { InfoPage } from '../pages/info/info';
 import { DbhMenuPage } from '../pages/dbh-menu/dbh-menu';
@@ -39,7 +39,7 @@ export class MyApp {
       this.pages = [
         { title: 'Home', component: DbhMenuPage },
         { title: 'Collections', component: RepeatedCardsPage },
-        { title: 'Searcher', component: CardListPage },
+        { title: 'Searcher', component: CardSearchPage },
         { title: 'Info', component: InfoPage}
       ];
 

@@ -12,14 +12,14 @@ export class AuthProvider {
 
   constructor(
     private afAuth: AngularFireAuth
-    //public cList: CardListPage // No es posible declarar este tipo de variable que hacer referencia a una pagina, parece que solo puede referenciar a bases de datos al ser provider
+    //public cList: CardSearchPage // No es posible declarar este tipo de variable que hacer referencia a una pagina, parece que solo puede referenciar a bases de datos al ser provider
   ) {
     console.log('Hello AuthProvider Provider');
   }
 
   // Registro de usuario
   registerUser(email:string, password:string){
-    return this.afAuth.auth.createUserWithEmailAndPassword( email, password)
+    return this.afAuth.auth.createUserWithEmailAndPassword( email, password )
     .then((res)=>{
       // El usuario se ha creado correctamente. 
     })

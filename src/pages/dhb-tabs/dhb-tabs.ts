@@ -15,7 +15,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class DhbTabsPage {
 
-  cardListRoot = 'CardListPage'
+  cardSearchRoot = 'CardSearchPage'
   repeatedCardsRoot = 'RepeatedCardsPage'
   infoRoot = 'InfoPage'
 

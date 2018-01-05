@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { CardListPage } from '../card-search/card-search';
+import { CardSearchPage } from '../card-search/card-search';
 import { RepeatedCardsPage } from '../repeated-cards/repeated-cards';
 import { InfoPage } from '../info/info';
 
@@ -29,7 +29,7 @@ export class DbhMenuPage {
     public navParams: NavParams) {
       this.rootPage = RepeatedCardsPage;
       this.collections = RepeatedCardsPage;
-      this.cardsearch = CardListPage;
+      this.cardsearch = CardSearchPage;
       this.collectionsinfo = InfoPage;
   }
 

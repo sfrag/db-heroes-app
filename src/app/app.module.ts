@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 
-import { CardListPage } from '../pages/card-search/card-search';
+import { CardSearchPage } from '../pages/card-search/card-search';
 import { RepeatedCardsPage } from '../pages/repeated-cards/repeated-cards';
 import { InfoPage } from '../pages/info/info';
 import { CollectionsPopoverPage } from '../pages/collections-popover/collections-popover';
@@ -34,7 +34,7 @@ var firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    CardListPage,
+    CardSearchPage,
     RepeatedCardsPage,
     CollectionsPopoverPage,
     InfoPage 
@@ -49,7 +49,7 @@ var firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    CardListPage,
+    CardSearchPage,
     RepeatedCardsPage,
     CollectionsPopoverPage,
     InfoPage 

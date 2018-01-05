@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, LoadingController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
 import 'rxjs/add/operator/first';
 import * as _ from 'lodash';
 
 /**
- * Generated class for the CardListPage page.
+ * Generated class for the CardSearchPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -17,13 +17,12 @@ import * as _ from 'lodash';
   selector: 'page-card-search',
   templateUrl: 'card-search.html',
 })
-export class CardListPage {
+export class CardSearchPage {
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private dbhDb: FirebaseDbProvider,
-    public loadingCtrl: LoadingController
+    private dbhDb: FirebaseDbProvider
   ) {   
     this.counter = 1; 
   }
@@ -55,18 +54,6 @@ export class CardListPage {
     this.loadcards();
     this.filters[property] = val => _.includes(val, rule)
     this.applyFilters()
-  }
-
-  presentLoadingDefault() {
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-  
-    loading.present();
-  
-    setTimeout(() => {
-      loading.dismiss();
-    }, 1000);
   }
 
   savecard(card){
@@ -114,7 +101,6 @@ export class CardListPage {
   }
 
   updatecounter(card){
-    this.presentLoadingDefault();
     if(this.ucards != undefined){
           this.ucardscount = card.counter;
           if(this.deleting == false){
