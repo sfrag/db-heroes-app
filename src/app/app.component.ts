@@ -31,7 +31,7 @@ export class MyApp {
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,
     public alertCtrl: AlertController,
-    private fcm: FCM,
+    public fcm: FCM,
     private auth: AuthProvider) {
     
       this.initializeApp();
@@ -71,13 +71,13 @@ export class MyApp {
 
       if (this.platform.is('cordova')){
         
-        this.fcm.subscribeToTopic('all');
+        //this.fcm.subscribeToTopic('all');
         
-        this.fcm.getToken().then(token => {
+        /* this.fcm.getToken().then(token => {
           //backend.registerToken(token);
-        });
+        }); */
   
-        this.fcm.onNotification().subscribe(data => {
+        /* this.fcm.onNotification().subscribe(data => {
           alert('message received');
           if(data.wasTappedTapped){
             console.info("Received in background");
@@ -85,11 +85,11 @@ export class MyApp {
             alert(data);
             console.info("Received in foreground");
           };
-        });
+        }); */
   
-        this.fcm.onTokenRefresh().subscribe(token => {
+        /* this.fcm.onTokenRefresh().subscribe(token => {
           //backend.registerToken(token);
-        });
+        }); */
       }
 
     }
