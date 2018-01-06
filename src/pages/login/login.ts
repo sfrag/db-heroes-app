@@ -64,5 +64,36 @@ export class LoginPage {
     })
   }
 
+  /////////// ALERTS ///////////
+
+  resetPasswordInputAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Password reset',
+      message: 'Introduce your email to recieve your password reset code',
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'Email'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: (data:any) => {
+            this.auth.passReset(data.email);
+            console.log('Save clicked');
+          }
+        }
+      ]
+    })
+    alert.present();
+  }
+
 
 }
