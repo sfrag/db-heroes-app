@@ -16,26 +16,27 @@
 
 <ion-content padding>
   
+  <ion-spinner *ngIf="loadingcards" name="bubbles"></ion-spinner>
   
   <!-- <ion-searchbar (ionInput)="getItems($event)">
     
   </ion-searchbar> -->
   
-  <ion-list>
+  <ion-list *ngIf="!loadingcards">
     <h2>Search your card</h2>
     <p>Introduce el código de la carta que quieres buscar</p>    
     <ion-item>
       <ion-label floating>Card id</ion-label>
-      <ion-input type="text" [(ngModel)]="id"></ion-input>
-      <button ion-button outline item-end color="primary" (click)="filterExact('id',id)">Search</button>
+      <ion-input #idsearch type="text" [(ngModel)]="id"></ion-input>
+      <button ion-button outline item-end color="primary" (click)="searchCards(idsearch.value)">Search</button>
     </ion-item>
   </ion-list>
 
-  <ion-list>  
+  <ion-list *ngIf="!loadingcards">  
     <ion-grid>
 
         <ion-row>
-          <ion-col *ngFor="let fcards of filteredCards" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
+          <ion-col *ngFor="let fcards of cards" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
                     
                 <ion-badge class="dbh-badge" color="danger">{{fcards.counter}}</ion-badge>
                 <img class="card-size" [src]="fcards.url">

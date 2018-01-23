@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
+//import { SearchCardsPipe } from '../../pipes/search-cards/search-cards';
+
 import 'rxjs/add/operator/first';
 import * as _ from 'lodash';
 
@@ -19,15 +21,8 @@ import * as _ from 'lodash';
 })
 export class CardSearchPage {
 
-  constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams,
-    private dbhDb: FirebaseDbProvider
-  ) {   
-    this.counter = 1; 
-  }
-
   cards: any;
+  tosearchcards: any;
   ucards: any;
   processedcards: any;
   ucardscount: any;
@@ -35,6 +30,7 @@ export class CardSearchPage {
   newer: boolean;
   subscription: any;
   filteredCards: any;
+  cardsconcat: any;
 
   // esta variable indicara si estamos eliminando o añadiendo una carta
   deleting: boolean;
@@ -45,15 +41,14 @@ export class CardSearchPage {
   /// Active filter rules
   filters = {}
 
-  private applyFilters() {
-    this.filteredCards = _.filter(this.cards, _.conforms(this.filters) )
-  }
-
-  /// filter property by equality to rule
-  filterExact(property: string, rule: any) {
-    this.loadcards();
-    this.filters[property] = val => _.includes(val, rule)
-    this.applyFilters()
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private dbhDb: FirebaseDbProvider
+  ) {   
+    this.counter = 1;
+    this.cards = [];
+    this.cardsconcat = [];
   }
 
   savecard(card){
@@ -128,14 +123,44 @@ export class CardSearchPage {
       }
   }
 
-  loadcards() {
-    console.log('ionViewDidLoad Sdbh7Page');
+  searchCards(idsearch){
+    this.cards = [];
+    for (let i=0; i<this.cardsconcat.length; i++){
+
+      if(((this.cardsconcat[i].id).indexOf(idsearch.toUpperCase())) != -1){
+        this.cards.push(this.cardsconcat[i]);
+      } 
+
+    }
+  }
+  
+  ionViewDidLoad() {
+
+    let toconcat: object[];
+    let pruebate: object[];
+
+    console.log('loading only needed cards');
     
     this.dbhDb.getCards().first().subscribe(cards=>{  
       this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
         
         this.ucards = ucards;
-        this.cards = (cards[0].cards).concat(cards[1].cards,cards[2].cards,cards[3].cards,cards[4].cards,cards[5].cards,cards[6].cards,cards[7].cards);
+
+        // guardamos todas las cartas de las distintas colecciones en una misma variable
+
+         for(let k = 0; k<cards.length; k++){
+          if(k==0){
+            this.cardsconcat = cards[k].cards;
+          }
+          else{
+            toconcat = cards[k].cards;
+            this.cardsconcat = _.concat(this.cardsconcat, cards[k].cards);
+          }
+        }
+        
+        //this.cards = this.cardsconcat;
+        //let allcards = this.cardsconcat;
+
         this.processedcards = cards;
 
         for(let i=0; i<this.ucards.length; i++){
@@ -153,6 +178,7 @@ export class CardSearchPage {
             }
           }
         }
+
       });
     });
     //this.applyFilters();
