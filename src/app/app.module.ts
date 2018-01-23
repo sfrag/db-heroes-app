@@ -19,6 +19,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { FCM } from '@ionic-native/fcm';
+import { CardsProvider } from '../providers/cards/cards';
 
 //pages -- revisar esto porque creo que esta mal y se tiene que eliminar como las otras paginas y solo ponerlo en el modulo de su carpeta
 
@@ -37,7 +38,7 @@ var firebaseConfig = {
     CardSearchPage,
     RepeatedCardsPage,
     CollectionsPopoverPage,
-    InfoPage 
+    InfoPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +61,8 @@ var firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseDbProvider,
     AuthProvider,
-    FCM
+    FCM,
+    CardsProvider
   ]
 })
 export class AppModule {}
