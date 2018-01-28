@@ -24,6 +24,9 @@ export class Gm2Page {
   counter: number;
   newer: boolean;
   subscription: any;
+  repeatedcards: any;
+  cardswapper: any;
+  
 
   // esta variable indicara si estamos eliminando o añadiendo una carta
   deleting: boolean;
@@ -34,6 +37,8 @@ export class Gm2Page {
     private dbhDb: FirebaseDbProvider
     ) {
       this.counter = 1;
+      this.cardswapper = "all";
+      this.repeatedcards = [];
   }
 
   savecard(card){
@@ -64,6 +69,16 @@ export class Gm2Page {
       }
       this.dbhDb.saveCard(newcard);
     }
+  }
+
+  showrepeatedcards(event){
+    this.repeatedcards = [];
+    for (let i=0; i<this.cards.length; i++){
+      if(this.cards[i].counter > 1){
+        this.repeatedcards.push(this.cards[i]);
+      }
+    }
+
   }
 
   deletecard(card){

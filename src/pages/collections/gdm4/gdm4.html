@@ -14,17 +14,43 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-grid>
+  <ion-segment [(ngModel)]="cardswapper" (ionChange)="showrepeatedcards($event)" color="primary">
+    <ion-segment-button value="all">
+      All Cards
+    </ion-segment-button>
+    <ion-segment-button value="repeated">
+      Repeated Cards
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="cardwrapper" [ngSwitch]="cardswapper">
+    <ion-list *ngSwitchCase="'all'">
+      <ion-grid>
         <ion-row>
-            <ion-col *ngFor="let fcards of cards" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-1>
-                  <ion-badge class="dbh-badge" color="danger">{{fcards.counter}}</ion-badge>
-                  <img class="card-size" [src]="fcards.url">
-                  <button ion-button small class="tengui" (click)="savecard(fcards)" >tengui</button>
-                  <button ion-button small class="tengui" (click)="deletecard(fcards)" >borrar</button>
-              <p><strong>El id de la carta es: {{fcards.id}}</strong></p>
-            </ion-col>
+          <ion-col *ngFor="let fcards of cards" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-1>
+                <ion-badge class="dbh-badge" color="danger">{{fcards.counter}}</ion-badge>
+                <img class="card-size" [src]="fcards.url">
+                <div class="card-id-tag">{{fcards.id}}</div>
+                <div class="add-rest-but-container">
+                    <button ion-button  class="tengui" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
+                    <button ion-button  class="tengui" (click)="deletecard(fcards)" ><ion-icon name="trash" ></ion-icon></button>
+                </div>
+          </ion-col>
         </ion-row>
-    </ion-grid>
-  </ion-list>
+      </ion-grid>
+    </ion-list>
+    <ion-list *ngSwitchCase="'repeated'">
+        <ion-row>
+          <ion-col *ngFor="let fcards of repeatedcards" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-1>
+                <ion-badge class="dbh-badge" color="danger">{{fcards.counter}}</ion-badge>
+                <img class="card-size" [src]="fcards.url">
+                <div class="card-id-tag">{{fcards.id}}</div>
+                <div class="add-rest-but-container">
+                    <button ion-button  class="tengui" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
+                    <button ion-button  class="tengui" (click)="deletecard(fcards)" ><ion-icon name="trash" ></ion-icon></button>
+                </div>
+          </ion-col>
+        </ion-row>
+    </ion-list>
+  </div>
 </ion-content>

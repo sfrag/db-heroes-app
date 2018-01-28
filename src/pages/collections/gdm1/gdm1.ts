@@ -22,6 +22,9 @@ export class Gdm1Page {
   ucards: any;
   processedcards: any;
   subscription: any;
+  repeatedcards: any;
+  cardswapper: any;
+
 
   // esta variable indicara si estamos eliminando o añadiendo una carta
   deleting: boolean;
@@ -32,6 +35,18 @@ export class Gdm1Page {
     private dbhDb: FirebaseDbProvider,
     private dbCards: CardsProvider
     ) {
+      this.cardswapper = "all";
+      this.repeatedcards = [];
+  }
+
+  showrepeatedcards(event){
+    this.repeatedcards = [];
+    for (let i=0; i<this.cards.length; i++){
+      if(this.cards[i].counter > 1){
+        this.repeatedcards.push(this.cards[i]);
+      }
+    }
+
   }
 
   savecard(card){

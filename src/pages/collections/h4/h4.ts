@@ -24,6 +24,8 @@ export class H4Page {
   counter: number;
   newer: boolean;
   subscription: any;
+  cardswapper: any;
+  repeatedcards: any;
 
   // esta variable indicara si estamos eliminando o añadiendo una carta
   deleting: boolean;
@@ -31,9 +33,11 @@ export class H4Page {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private dbhDb: FirebaseDbProvider
-    ) {
-      this.counter = 1;
+    private dbhDb: FirebaseDbProvider 
+  ) {
+    this.counter = 1;
+    this.cardswapper = "all";
+    this.repeatedcards = [];
   }
 
   savecard(card){
@@ -64,6 +68,16 @@ export class H4Page {
       }
       this.dbhDb.saveCard(newcard);
     }
+  }
+
+  showrepeatedcards(event){
+    this.repeatedcards = [];
+    for (let i=0; i<this.cards.length; i++){
+      if(this.cards[i].counter > 1){
+        this.repeatedcards.push(this.cards[i]);
+      }
+    }
+
   }
 
   deletecard(card){
