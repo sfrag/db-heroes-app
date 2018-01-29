@@ -40,7 +40,7 @@
       </ion-grid>
     </ion-list>
     <ion-list *ngSwitchCase="'repeated'">
-        <ion-row>
+        <ion-row *ngIf="repeatedcards.length != 0">
           <ion-col *ngFor="let fcards of repeatedcards" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-1>
                 <ion-badge class="dbh-badge" color="danger">{{fcards.counter}}</ion-badge>
                 <img class="card-size" [src]="fcards.url">
@@ -51,6 +51,11 @@
                 </div>
           </ion-col>
         </ion-row>
+        <div class="no-repeated-cards-container" *ngIf="repeatedcards.length == 0">
+          <div class="no-repeated-cards-text">NO REPEATED CARDS</div> 
+          <div class="no-repeated-cards"><img  src="./images/cards_vector.svg" alt=""></div> 
+        </div>
+        
     </ion-list>
   </div>
 </ion-content>

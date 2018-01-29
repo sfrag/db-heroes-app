@@ -71,6 +71,23 @@ ion-nav{
     border-radius: 5px;
 }
 
+
+
+.no-repeated-cards-container{
+    .no-repeated-cards-text{
+        text-align: center;
+    }
+    .no-repeated-cards{
+        display: flex;
+        justify-content: center;
+        img{
+            width: 60%;
+            height: auto;
+        }
+    }
+
+}
+
 img{
     &.card-size{
         width: 100%;
