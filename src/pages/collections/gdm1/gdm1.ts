@@ -24,6 +24,7 @@ export class Gdm1Page {
   subscription: any;
   repeatedcards: any;
   cardswapper: any;
+  counter: number;
 
 
   // esta variable indicara si estamos eliminando o añadiendo una carta
@@ -37,6 +38,7 @@ export class Gdm1Page {
     ) {
       this.cardswapper = "all";
       this.repeatedcards = [];
+      this.counter = 1;
   }
 
   showrepeatedcards(event){

@@ -50,6 +50,10 @@
                 </div>
           </ion-col>
         </ion-row>
+        <div class="no-repeated-cards-container" *ngIf="repeatedcards.length == 0">
+          <div class="no-repeated-cards-text">NO REPEATED CARDS</div> 
+          <div class="no-repeated-cards"><img  src="./images/cards_vector.svg" alt=""></div> 
+        </div>
     </ion-list>
   </div>
 </ion-content>
