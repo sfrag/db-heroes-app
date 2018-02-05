@@ -19,9 +19,9 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let collection of collections" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
-        <img (click)="gotoCollection(collection.id)" class="card-size" [src]="collection.url">     
+        <img (click)="gotoCollection(collection.id)" class="card-size" src="./images/collections.svg">     
         <div class="collection-id">{{collection.id}}</div>
-        <p><strong>Total de cartas de la colección: {{collection.totalcards}} </strong></p>
+        <div class="collection-cards">{{collection.totalcards}} CARDS</div>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -6,6 +6,9 @@ import 'rxjs/add/operator/first';
 
 import { CollectionsPopoverPage } from '../../collections-popover/collections-popover';
 
+import * as _ from 'lodash';
+
+
 /**
  * Generated class for the Sdbh7Page page.
  *

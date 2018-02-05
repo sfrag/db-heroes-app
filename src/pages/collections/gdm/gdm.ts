@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { FirebaseDbProvider } from '../../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
+import * as _ from 'lodash';
+
 
 /**
  * Generated class for the GdmPage page.

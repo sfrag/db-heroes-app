@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { FirebaseDbProvider } from '../../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
+import * as _ from 'lodash';
 
 /**
  * Generated class for the Sdbh6Page page.
@@ -106,13 +107,14 @@ export class Sdbh6Page {
             // mientras el número de cartas que tengamos sea mayor que 1 simplemente restaremos el contador
             if(this.ucardscount>1){
               this.ucardscount --;
+              if( this.ucardscount == 1 ){ this.deletefromrepeated(card); }
               this.dbhDb.countCards(card.id,this.ucardscount);
             }
             // si el contador de cartas es 1 y eliminamos uno mas significa que ya no tenemos la carta
             // perder una carta es algo extraño pero podría suceder si el usuario se ha equivocado
             // en este caso sería interesante mostrar una alerta indicanto que la carta se va a borrar
             // de la base de datos y si lo acepta, la carta se borrará de la base de datos del usuario
-            else if(this.ucardscount == 1){
+            else if( this.ucardscount == 1 ){
               this.ucardscount --;
               this.dbhDb.countCards(card.id,this.ucardscount);
               this.dbhDb.deleteCard(card);
@@ -121,6 +123,14 @@ export class Sdbh6Page {
           }
           
       }
+  }
+
+  // este método tiene que encargarse de eliminar la carta del listado de cartas repetidas
+  // en cuanto el contador ha llegado a 1
+  deletefromrepeated(card){
+    this.repeatedcards = _.remove(this.repeatedcards, function(n){
+      return n.id != card.id;
+    })
   }
 
   ionViewDidLoad() {

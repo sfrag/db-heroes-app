@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
+import * as _ from 'lodash';
 
 /*
   Generated class for the CardsProvider provider.
@@ -15,6 +16,7 @@ export class CardsProvider {
   constructor(private dbhDb: FirebaseDbProvider) {
     console.log('Hello CardsProvider Provider');
     this.counter = 1;
+    this.repeatedcards = [];
   }
 
   // esta variable indicara si estamos eliminando o añadiendo una carta
@@ -26,6 +28,7 @@ export class CardsProvider {
   counter: number;
   newer: boolean;
   subscription: any;
+  repeatedcards: any;
 
   savecard(card){
 
@@ -82,6 +85,7 @@ export class CardsProvider {
             // mientras el número de cartas que tengamos sea mayor que 1 simplemente restaremos el contador
             if(this.ucardscount>1){
               this.ucardscount --;
+              //if( this.ucardscount == 1 ){ this.deleterepeated(card); }
               this.dbhDb.countCards(card.id,this.ucardscount);
             }
             // si el contador de cartas es 1 y eliminamos uno mas significa que ya no tenemos la carta
@@ -98,6 +102,31 @@ export class CardsProvider {
           
       }
   }
+
+  showrepeated(){
+    this.repeatedcards = [];
+    for (let i=0; i<this.cards.length; i++){
+      if(this.cards[i].counter > 1){
+        this.repeatedcards.push(this.cards[i]);
+      }
+    }
+    return this.repeatedcards;
+  }
+
+  deleterepeated(card){
+    this.repeatedcards = _.remove(this.repeatedcards, function(n){
+      return n.id != card.id;});
+    return this.repeatedcards;
+  }
+
+  showrepeatedcards(event){
+    this.repeatedcards = [];
+    for (let i=0; i<this.cards.length; i++){
+      if(this.cards[i].counter > 1){
+        this.repeatedcards.push(this.cards[i]);
+      }
+    }
+  } 
 
   loadcards(colnumber){
     this.dbhDb.getCards().first().subscribe(cards=>{  

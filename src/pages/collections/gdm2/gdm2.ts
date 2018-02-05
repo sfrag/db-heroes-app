@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { FirebaseDbProvider } from '../../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
+import * as _ from 'lodash';
+
 /**
  * Generated class for the Gdm2Page page.
  *
@@ -132,6 +134,7 @@ export class Gdm2Page {
         this.cards = cards[10].cards;
         this.processedcards = cards;
 
+        // Esto se encarga de cargar todas las cartas de esta coleccion y mirar cualas tiene el usuario para actualizar el contador
         for(let i=0; i<this.ucards.length; i++){
           var pilla = this.ucards[i];
           for( let j=0; j<this.processedcards.length; j++){
