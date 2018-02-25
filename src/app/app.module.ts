@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 import { MyApp } from './app.component';
 
@@ -20,6 +21,19 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { FCM } from '@ionic-native/fcm';
 import { CardsProvider } from '../providers/cards/cards';
+import { CardPreviewModalPage } from '../pages/card-preview-modal/card-preview-modal';
+
+//export class PhotoViewerMock extends PhotoViewer {
+  /**
+   * Shows an image in full screen
+   * @param url {string} URL or path to image
+   * @param title {string}
+   * @param options {any}
+   */
+// show(url: string, title?: string, options?: {
+//      share?: boolean;
+//  }): void {};
+//}
 
 //pages -- revisar esto porque creo que esta mal y se tiene que eliminar como las otras paginas y solo ponerlo en el modulo de su carpeta
 
@@ -38,6 +52,7 @@ var firebaseConfig = {
     CardSearchPage,
     RepeatedCardsPage,
     CollectionsPopoverPage,
+    CardPreviewModalPage,
     InfoPage
   ],
   imports: [
@@ -53,12 +68,15 @@ var firebaseConfig = {
     CardSearchPage,
     RepeatedCardsPage,
     CollectionsPopoverPage,
-    InfoPage 
+    CardPreviewModalPage,
+    InfoPage, 
   ],
   providers: [
     StatusBar,
+    //{ provide: PhotoViewer, useClass: PhotoViewerMock },
+    PhotoViewer,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     FirebaseDbProvider,
     AuthProvider,
     FCM,
