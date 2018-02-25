@@ -29,6 +29,7 @@ export class GdmPage {
   subscription: any;
   cardswapper: any;
   repeatedcards: any;
+  hidespinner: boolean;
 
   // esta variable indicara si estamos eliminando o añadiendo una carta
   deleting: boolean;
@@ -41,6 +42,7 @@ export class GdmPage {
     this.counter = 1;
     this.cardswapper = "all";
     this.repeatedcards = [];
+    this.hidespinner = true;
   }
 
   savecard(card){
@@ -128,7 +130,8 @@ export class GdmPage {
   ionViewDidEnter() {
     console.log('ionViewDidLoad Sdbh7Page');
     
-    this.dbhDb.getCards().first().subscribe(cards=>{  
+    this.dbhDb.getCards().first().subscribe(cards=>{
+
       this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
         
         this.ucards = ucards;
@@ -150,8 +153,8 @@ export class GdmPage {
             }
           }
         }
+        this.hidespinner = false;
       });
     });
   }
-
 }
