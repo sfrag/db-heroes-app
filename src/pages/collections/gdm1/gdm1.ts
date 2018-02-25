@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+
+import { CardPreviewModalPage } from '../../card-preview-modal/card-preview-modal';
 
 import { FirebaseDbProvider } from '../../../providers/firebase-db/firebase-db';
 import { CardsProvider } from '../../../providers/cards/cards';
@@ -36,11 +38,18 @@ export class Gdm1Page {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private dbhDb: FirebaseDbProvider,
-    private dbCards: CardsProvider
+    private dbCards: CardsProvider,
+    public modalCtrl: ModalController
+    
     ) {
       this.cardswapper = "all";
       this.repeatedcards = [];
       this.counter = 1;
+  }
+
+  cardPreviewModal(card) {
+    let modal = this.modalCtrl.create(CardPreviewModalPage, { cardProps: card }, { showBackdrop:true });
+    modal.present();
   }
 
   showrepeatedcards(event){
