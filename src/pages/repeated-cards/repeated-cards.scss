@@ -1,4 +1,8 @@
 page-repeated-cards {
+    .collections-page{
+        background-color: white;
+    }
+
     .card-size{
         width: 100%;
     }
@@ -6,9 +10,9 @@ page-repeated-cards {
         font-family: Abel;
         text-transform: uppercase;
         text-align: center;
-        font-size: 24px;
+        font-size: 4vw;
         position: absolute;
-        top: 33px;
+        top: 9%;
         left: 0;
         width: 100%;
     }
