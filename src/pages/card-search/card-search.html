@@ -23,13 +23,15 @@
   </ion-searchbar> -->
   
   <ion-list *ngIf="!loadingcards">
-    <h2>Search your card</h2>
-    <p>Introduce el código de la carta que quieres buscar</p>    
-    <ion-item>
-      <ion-label floating>Card id</ion-label>
-      <ion-input #idsearch type="text" [(ngModel)]="id"></ion-input>
-      <button ion-button outline item-end color="primary" (click)="searchCards(idsearch.value)">Search</button>
-    </ion-item>
+    <div class=search-header>
+      <h1>CARD SEARCHER</h1>
+      <h2>Introduce card code to search</h2>
+    </div>     
+      <ion-item class="card-search-input">
+        <ion-label floating>sh6-01</ion-label>
+        <ion-input #idsearch type="text" [(ngModel)]="id"></ion-input>
+        <button ion-button outline item-end color="primary" (click)="searchCards(idsearch.value)">Search</button>
+      </ion-item>
   </ion-list>
 
   <ion-list *ngIf="!loadingcards">  
