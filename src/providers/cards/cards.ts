@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
+import Rx from 'rxjs/Rx';
 import 'rxjs/add/operator/first';
 import * as _ from 'lodash';
 
@@ -129,8 +130,30 @@ export class CardsProvider {
   } 
 
   loadcards(colnumber){
+
+    /* Terminated by error still fires function */
+    /* var source = Rx.Observable.throw(new Error())
+    .finally(function () { console.log('Finally'); });
+
+    var subscription = source.subscribe(
+    function (x) {
+      console.log('Next: %s', x);
+    },
+    function (err) {
+      console.log('Error: %s', err);
+    },
+    function () {
+      console.log('Completed');
+    }); */
+
+    // => Error: Error
+    // => Finally
+
+    var t1 = {}
+
     this.dbhDb.getCards().first().subscribe(cards=>{  
-      this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
+      this.cards = cards[colnumber].cards;
+      /* this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
         
         this.ucards = ucards;
         this.cards = cards[colnumber].cards;
@@ -151,7 +174,7 @@ export class CardsProvider {
             }
           }
         }
-      });
+      }); */
     });
     return this.cards;
   }
