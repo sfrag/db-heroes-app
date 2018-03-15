@@ -1,5 +1,14 @@
 page-card-preview-modal {
+    .preview-card-img{
+        text-align: center;
+        background-color: transparent;
+    }
+    .preview-card-btn{
+        text-align: center;
+        background-color: transparent; 
+    }
     img{
-        width: 80%;
+        border-radius: 10px;
+        width: 70%;
     }
 }
