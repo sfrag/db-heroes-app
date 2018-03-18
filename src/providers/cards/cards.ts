@@ -31,11 +31,11 @@ export class CardsProvider {
   subscription: any;
   repeatedcards: any;
 
-  savecard(card){
+  savecard(card, ucards){
 
     this.deleting = false;
     this.newer = true;
-    let user_card = this.ucards;
+    let user_card = ucards;
 
     // Si ya la tenemos, solo actualizaremos el valor de counter
     
@@ -43,8 +43,8 @@ export class CardsProvider {
       let test = user_card[i];
       if(test.id == card.id){
         this.newer = false;
-        this.updatecounter(test);
-        return;
+        this.ucardscount = this.updatecounter(test, ucards);
+        return this.ucardscount;
       }
     }
 
@@ -61,26 +61,27 @@ export class CardsProvider {
     }
   }
 
-  deletecard(card){
+  deletecard(card, ucards){
 
     this.deleting = true;
-    let user_card = this.ucards;
+    let user_card = ucards;
 
     for(let i = 0;i<user_card.length; i++){
       let test = user_card[i];
       if(test.id == card.id){
-        this.updatecounter(test);
+        this.updatecounter(test, user_card);
         return;
       }
     }
   }
 
-  updatecounter(card){
-    if(this.ucards != undefined){
+  updatecounter(card, ucards){
+    if(ucards != undefined){
           this.ucardscount = card.counter;
           if(this.deleting == false){
             this.ucardscount ++;
             this.dbhDb.countCards(card.id,this.ucardscount);
+            return this.ucardscount;
           }
           else if(this.deleting == true){
             // mientras el número de cartas que tengamos sea mayor que 1 simplemente restaremos el contador
@@ -104,11 +105,11 @@ export class CardsProvider {
       }
   }
 
-  showrepeated(){
+  showrepeated(cards){
     this.repeatedcards = [];
-    for (let i=0; i<this.cards.length; i++){
-      if(this.cards[i].counter > 1){
-        this.repeatedcards.push(this.cards[i]);
+    for (let i=0; i<cards.length; i++){
+      if(cards[i].counter > 1){
+        this.repeatedcards.push(cards[i]);
       }
     }
     return this.repeatedcards;
@@ -129,54 +130,14 @@ export class CardsProvider {
     }
   } 
 
-  loadcards(colnumber){
+  loadcards(){
+    //return cards observable
+    return this.dbhDb.getCards().first();
+  }
 
-    /* Terminated by error still fires function */
-    /* var source = Rx.Observable.throw(new Error())
-    .finally(function () { console.log('Finally'); });
-
-    var subscription = source.subscribe(
-    function (x) {
-      console.log('Next: %s', x);
-    },
-    function (err) {
-      console.log('Error: %s', err);
-    },
-    function () {
-      console.log('Completed');
-    }); */
-
-    // => Error: Error
-    // => Finally
-
-    var t1 = {}
-
-    this.dbhDb.getCards().first().subscribe(cards=>{  
-      this.cards = cards[colnumber].cards;
-      /* this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
-        
-        this.ucards = ucards;
-        this.cards = cards[colnumber].cards;
-        this.processedcards = cards;
-
-        for(let i=0; i<this.ucards.length; i++){
-          var pilla = this.ucards[i];
-          for( let j=0; j<this.processedcards.length; j++){
-            var pilla2 = this.processedcards[j];
-            if(pilla.collection == pilla2.name){
-              console.log("Es de esta colección, busco dentro");
-              for(let k=0; k<pilla2.cards.length; k++){
-                var pilla3 = pilla2.cards[k];
-                if(pilla3.id == pilla.id){
-                  pilla3.counter = pilla.counter;
-                }
-              }
-            }
-          }
-        }
-      }); */
-    });
-    return this.cards;
+  loadusercards(){
+    //return user cards observable
+    return this.dbhDb.getUserCards();
   }
 
   unsuscribe(){
