@@ -23,6 +23,8 @@
     </ion-segment-button>
   </ion-segment>
 
+  <div class="spinner" [hidden]="!hidespinner"><ion-spinner name="bubbles"></ion-spinner></div>
+  
   <div class="cardwrapper" [ngSwitch]="cardswapper">
     <ion-list *ngSwitchCase="'all'">
       <ion-grid>

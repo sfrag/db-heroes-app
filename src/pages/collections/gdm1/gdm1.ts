@@ -24,11 +24,12 @@ export class Gdm1Page {
 
   cards: any;
   ucards: any;
-  processedcards: any;
+  collectioncards: any;
   subscription: any;
   repeatedcards: any;
   cardswapper: any;
   counter: number;
+  hidespinner: boolean;
 
 
   // esta variable indicara si estamos eliminando o añadiendo una carta
@@ -45,6 +46,7 @@ export class Gdm1Page {
       this.cardswapper = "all";
       this.repeatedcards = [];
       this.counter = 1;
+      this.hidespinner = true;
   }
 
   cardPreviewModal(card) {
@@ -53,7 +55,7 @@ export class Gdm1Page {
   }
 
   showrepeatedcards(event){
-    this.repeatedcards = this.dbCards.showrepeated();
+    this.repeatedcards = this.dbCards.showrepeated(this.cards);
   }
 
   deletefromrepeated(card){
@@ -61,22 +63,44 @@ export class Gdm1Page {
   }
 
   savecard(card){
-    this.dbCards.savecard(card);
-    this.updatecounter(card);
+    this.counter = this.dbCards.savecard(card, this.ucards);
+    //this.updatecounter(card);
   }
 
   deletecard(card){
-    this.dbCards.deletecard(card);
+    this.dbCards.deletecard(card, this.ucards);
     if(card.counter == 1){ this.deletefromrepeated(card); };
   }
 
   updatecounter(card){
-    this.cards = this.dbCards.loadcards(9);
+    this.counter = this.dbCards.updatecounter(card, this.ucards);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Sdbh7Page');
+  /* ionViewDidLoad() {
     this.cards = this.dbCards.loadcards(9);
+  } */
+
+  ionViewDidLoad(){
+    this.dbCards.loadcards().subscribe(cards => {
+      //get cards
+      this.cards = cards[9].cards;
+      this.dbCards.loadusercards().subscribe(ucards => {
+          
+        this.ucards = ucards;
+        this.collectioncards = this.cards;
+
+        for(let i=0; i<this.ucards.length; i++){
+          var ucard = this.ucards[i];
+          for(let j=0; j<this.collectioncards.length; j++){
+            var collectioncard = this.collectioncards[j];
+            if(collectioncard.id == ucard.id){
+              collectioncard.counter = ucard.counter;
+            }
+          }
+        }    
+        this.hidespinner = false;        
+      });
+    });
   }
 
   ngOnDestroy(){
