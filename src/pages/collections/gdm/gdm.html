@@ -32,7 +32,7 @@
         <ion-row>
           <ion-col *ngFor="let fcards of cards" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-1>
                 <ion-badge class="dbh-badge" color="danger">{{fcards.counter}}</ion-badge>
-                <img class="card-size" [src]="fcards.url">
+                <img (click)="cardPreviewModal(fcards)" class="card-size" [src]="fcards.url">
                 <div class="card-id-tag">{{fcards.id}}</div>
                 <div class="add-rest-but-container">
                     <button ion-button  class="tengui" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
@@ -46,7 +46,7 @@
         <ion-row *ngIf="repeatedcards.length != 0">
           <ion-col *ngFor="let fcards of repeatedcards" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-1>
                 <ion-badge class="dbh-badge" color="danger">{{fcards.counter}}</ion-badge>
-                <img class="card-size" [src]="fcards.url">
+                <img (click)="cardPreviewModal(fcards)" class="card-size" [src]="fcards.url">
                 <div class="card-id-tag">{{fcards.id}}</div>
                 <div class="add-rest-but-container">
                     <button ion-button  class="tengui" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
