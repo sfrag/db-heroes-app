@@ -29,7 +29,7 @@
     </div>     
       <ion-item class="card-search-input">
         <ion-label floating>sh6-01</ion-label>
-        <ion-input #idsearch type="text" [(ngModel)]="id"></ion-input>
+        <ion-input class="searcherinput" #idsearch type="text" [(ngModel)]="id"></ion-input>
         <button ion-button outline item-end color="primary" (click)="searchCards(idsearch.value)">Search</button>
       </ion-item>
   </ion-list>
@@ -41,12 +41,12 @@
           <ion-col *ngFor="let fcards of cards" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
                     
                 <ion-badge class="dbh-badge" color="danger">{{fcards.counter}}</ion-badge>
-                <img class="card-size" [src]="fcards.url">
-                <button ion-button small class="tengui" (click)="savecard(fcards)" >tengui</button>
-                <button ion-button small class="tengui" (click)="deletecard(fcards)" >borrar</button>
-             
-            <p><strong>El id de la carta es: {{fcards.id}}</strong></p>
-
+                <img (click)="cardPreviewModal(fcards)" class="card-size" [src]="fcards.url">
+                <div class="card-id-tag">{{fcards.id}}</div>
+                <div class="add-rest-but-container">
+                  <button ion-button  class="tengui" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
+                  <button ion-button  class="tengui" (click)="deletecard(fcards)" ><ion-icon name="trash" ></ion-icon></button>
+                </div>
           </ion-col>
       </ion-row>
       

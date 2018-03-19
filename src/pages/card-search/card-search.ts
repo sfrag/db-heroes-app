@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
+import { CardPreviewModalPage } from '../card-preview-modal/card-preview-modal';
 
 //import { SearchCardsPipe } from '../../pipes/search-cards/search-cards';
 
@@ -44,11 +45,18 @@ export class CardSearchPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private dbhDb: FirebaseDbProvider
+    private dbhDb: FirebaseDbProvider,
+    public alertCtrl: AlertController,
+    public modalCtrl: ModalController
   ) {   
     this.counter = 1;
     this.cards = [];
     this.cardsconcat = [];
+  }
+
+  cardPreviewModal(card) {
+    let modal = this.modalCtrl.create(CardPreviewModalPage, { cardProps: card }, { showBackdrop:true });
+    modal.present();
   }
 
   savecard(card){
@@ -126,18 +134,18 @@ export class CardSearchPage {
   searchCards(idsearch){
     this.cards = [];
     for (let i=0; i<this.cardsconcat.length; i++){
-
       if(((this.cardsconcat[i].id).indexOf(idsearch.toUpperCase())) != -1){
         this.cards.push(this.cardsconcat[i]);
-      } 
-
+      }
+    }
+    if(this.cards.length == 0){
+      this.showAlert();
     }
   }
   
   ionViewDidLoad() {
 
     let toconcat: object[];
-    let pruebate: object[];
 
     console.log('loading only needed cards');
     
@@ -188,6 +196,18 @@ export class CardSearchPage {
     if(this.subscription != undefined){
       this.subscription.unsubscribe();
     }
+  }
+
+
+  // Alerts and notifications
+
+  showAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'UPS! Not found',
+      subTitle: 'Please try with another card id pattern.',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }
