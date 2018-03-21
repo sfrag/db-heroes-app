@@ -83,7 +83,7 @@ export class GdmPage {
   ionViewDidLoad(){
     this.dbCards.loadcards().subscribe(cards => {
       //get cards
-      this.cards = cards[8].cards;
+      this.cards = cards[0].cards;
       this.dbCards.loadusercards().subscribe(ucards => {
           
         this.ucards = ucards;

@@ -83,7 +83,7 @@ export class Gmpromo2Page {
   ionViewDidLoad(){
     this.dbCards.loadcards().subscribe(cards => {
       //get cards
-      this.cards = cards[30].cards;
+      this.cards = cards[22].cards;
       this.dbCards.loadusercards().subscribe(ucards => {
           
         this.ucards = ucards;

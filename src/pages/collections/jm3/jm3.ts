@@ -79,7 +79,7 @@ export class Jm3Page {
   ionViewDidLoad(){
     this.dbCards.loadcards().subscribe(cards => {
       //get cards
-      this.cards = cards[42].cards;
+      this.cards = cards[34].cards;
       this.dbCards.loadusercards().subscribe(ucards => {
           
         this.ucards = ucards;

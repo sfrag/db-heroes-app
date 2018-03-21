@@ -79,7 +79,7 @@ export class Jm5Page {
   ionViewDidLoad(){
     this.dbCards.loadcards().subscribe(cards => {
       //get cards
-      this.cards = cards[44].cards;
+      this.cards = cards[36].cards;
       this.dbCards.loadusercards().subscribe(ucards => {
           
         this.ucards = ucards;

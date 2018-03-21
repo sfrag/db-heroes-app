@@ -83,7 +83,7 @@ export class H2Page {
   ionViewDidLoad(){
     this.dbCards.loadcards().subscribe(cards => {
       //get cards
-      this.cards = cards[33].cards;
+      this.cards = cards[25].cards;
       this.dbCards.loadusercards().subscribe(ucards => {
           
         this.ucards = ucards;

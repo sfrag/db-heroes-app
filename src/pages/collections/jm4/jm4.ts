@@ -131,7 +131,7 @@ export class Jm4Page {
       this.subscription = this.dbhDb.getUserCards().subscribe(ucards=>{
         
         this.ucards = ucards;
-        this.cards = cards[43].cards;
+        this.cards = cards[35].cards;
         this.processedcards = cards;
 
         for(let i=0; i<this.ucards.length; i++){

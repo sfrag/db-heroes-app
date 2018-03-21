@@ -79,7 +79,7 @@ export class Sdbh3Page {
   ionViewDidLoad(){
     this.dbCards.loadcards().subscribe(cards => {
       //get cards
-      this.cards = cards[3].cards;
+      this.cards = cards[43].cards;
       this.dbCards.loadusercards().subscribe(ucards => {
           
         this.ucards = ucards;
