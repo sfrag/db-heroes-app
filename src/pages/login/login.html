@@ -7,11 +7,13 @@
 
 
 <ion-content>
-  <ion-grid>
+    <div class="log_logo"><img src="./images/logi_cab.svg" alt=""></div>
+
+  <ion-grid class="login-wrapper">
     <ion-row>
       <ion-col col-10 offset-1>
             <ion-list>
-              <h6 ion-text>Login to your account</h6>              
+              <h6 class="intro_text"></h6>              
                   <ion-item padding>
                       <ion-label floating>Email</ion-label>
                       <ion-input [(ngModel)]="user.email" name="email" type="text" autocapitalize="off" required> </ion-input>
@@ -29,11 +31,10 @@
                     <button ion-button (click)="signin()" type="submit" color="secondary" block>
                       SIGN IN
                     </button>
-                    <h6>Forgot your password? <h6 (click)="resetPasswordInputAlert()"> Reset </h6></h6>
+                    <h6>Forgot your password? <h6 class="res" (click)="resetPasswordInputAlert()"> Reset </h6></h6>
                   </div>
             </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <div><img src="./images/krilin.png" alt=""></div>
 </ion-content>
