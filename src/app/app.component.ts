@@ -40,7 +40,7 @@ export class MyApp {
         { title: 'Home', component: DbhMenuPage },
         { title: 'Collections', component: RepeatedCardsPage },
         { title: 'Searcher', component: CardSearchPage },
-        { title: 'Info', component: InfoPage}
+        //{ title: 'Info', component: InfoPage}
       ];
 
     }

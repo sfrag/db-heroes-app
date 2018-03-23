@@ -18,7 +18,7 @@
 <ion-content class="collections-page" padding>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let collection of collections" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
+      <ion-col *ngFor="let collection of collections_rev" col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
         <img (click)="gotoCollection(collection.id)" class="card-size" src="./images/collections.svg">     
         <div class="collection-id">{{collection.id}}</div>
         <div class="collection-cards">{{collection.totalcards}} CARDS</div>
