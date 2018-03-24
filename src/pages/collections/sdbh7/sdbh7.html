@@ -7,9 +7,9 @@
 <ion-header class="page">
   <ion-navbar>
     <ion-title>SDBH7</ion-title> 
-    <button class="popover" ion-button clear icon-only (click)="showPopover($event)" style="float:right">
+    <!-- <button class="popover" ion-button clear icon-only (click)="showPopover($event)" style="float:right">
       <ion-icon name="more" is-active="false"></ion-icon> 
-    </button>
+    </button> -->
   </ion-navbar>
 </ion-header>
 
@@ -34,8 +34,8 @@
                 <img (click)="cardPreviewModal(fcards)" class="card-size" [src]="fcards.url">
                 <div class="card-id-tag">{{fcards.id}}</div>
                 <div class="add-rest-but-container">
-                    <button ion-button  class="tengui" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
-                    <button ion-button  class="tengui" (click)="deletecard(fcards)" ><ion-icon name="trash" ></ion-icon></button>
+                    <button ion-button  class="tengui addcard" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
+                    <button ion-button  class="tengui delcard" (click)="deletecard(fcards)" ><ion-icon name="trash" ></ion-icon></button>
                 </div>
           </ion-col>
         </ion-row>
@@ -48,8 +48,8 @@
                 <img (click)="cardPreviewModal(fcards)" class="card-size" [src]="fcards.url">
                 <div class="card-id-tag">{{fcards.id}}</div>
                 <div class="add-rest-but-container">
-                    <button ion-button  class="tengui" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
-                    <button ion-button  class="tengui" (click)="deletecard(fcards)" ><ion-icon name="trash" ></ion-icon></button>
+                    <button ion-button  class="tengui addcard" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
+                    <button ion-button  class="tengui delcard" (click)="deletecard(fcards)" ><ion-icon name="trash" ></ion-icon></button>
                 </div>
           </ion-col>
         </ion-row>
