@@ -21,7 +21,40 @@
   <!-- <ion-searchbar (ionInput)="getItems($event)">
     
   </ion-searchbar> -->
-  <div class="search-energy"><img src="./images/genkidama.svg" alt=""></div>
+  <div class="search-energy"><!-- <img src="./images/genkidama.svg" alt=""> -->
+    <svg class="scene" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 720 720" enable-background="new 0 0 720 720" xml:space="preserve">
+
+      <defs>
+        <linearGradient id="sun__gradient" gradientUnits="userSpaceOnUse" x1="360" y1="165.3398" x2="360" y2="553.9531" gradientTransform="matrix(1 0 0 -1 0 721)">
+          <stop  offset="0" style="stop-color:rgb(80, 187, 248)"/>
+          <stop  offset="0.2823" style="stop-color:rgb(51, 215, 236)"/>
+          <stop  offset="0.6909" style="stop-color:rgb(85, 203, 233)"/>
+          <stop  offset="1" style="stop-color:rgb(70, 179, 252)"/>
+        </linearGradient>
+      </defs>
+
+      <defs>
+        <linearGradient id="sun__gradient2" gradientUnits="userSpaceOnUse" x1="360" y1="165.3398" x2="360" y2="553.9531" gradientTransform="matrix(1 0 0 -1 0 721)">
+          <stop  offset="0" style="stop-color:rgb(186, 227, 233)"/>
+          <stop  offset="0.2823" style="stop-color:rgb(155, 255, 250)"/>
+          <stop  offset="0.6909" style="stop-color:rgb(170, 255, 255)"/>
+          <stop  offset="1" style="stop-color:rgb(152, 229, 239)"/>
+        </linearGradient>
+      </defs>
+  
+      <g id="minarepakistan">
+        <g class="sun" id="sun">
+          <circle class="sun__three" cx="361.5" cy="361.5" r="276"/>
+          <circle class="sun__two" cx="361.5" cy="361.5" r="250.5"/>
+          <circle class="sun__one" cx="361.5" cy="361.5" r="220.5"/>
+          <circle class="sun__main" fill="url(#sun__gradient)" cx="360" cy="360" r="193.5"/>
+          <circle class="sun__main_in" fill="url(#sun__gradient2)" cx="360" cy="360" r="130"/>
+        </g>
+      </g>
+  
+    </svg>
+  
+  </div>
   <ion-list *ngIf="!loadingcards">
     <div class=search-header>
       <h2>CARD SEARCHER</h2>
@@ -44,8 +77,8 @@
                 <img (click)="cardPreviewModal(fcards)" class="card-size" [src]="fcards.url">
                 <div class="card-id-tag">{{fcards.id}}</div>
                 <div class="add-rest-but-container">
-                  <button ion-button  class="tengui" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
-                  <button ion-button  class="tengui" (click)="deletecard(fcards)" ><ion-icon name="trash" ></ion-icon></button>
+                  <button ion-button  class="tengui addcard" (click)="savecard(fcards)" ><ion-icon name="add-circle"></ion-icon></button>
+                  <button ion-button  class="tengui delcard" (click)="deletecard(fcards)" ><ion-icon name="trash" ></ion-icon></button>
                 </div>
           </ion-col>
       </ion-row>
@@ -53,11 +86,11 @@
     </ion-grid>   
   
   </ion-list>
-  <div class="animation-wrapper">
-    <div class="particle particle-1"></div>
-    <div class="particle particle-2"></div>
-    <div class="particle particle-3"></div>
-    <div class="particle particle-4"></div>
-</div>
   
 </ion-content>
+<div class="animation-wrapper">
+  <div class="particle particle-1"></div>
+  <div class="particle particle-2"></div>
+  <div class="particle particle-3"></div>
+  <div class="particle particle-4"></div>
+</div>
