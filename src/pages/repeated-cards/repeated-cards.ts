@@ -25,6 +25,7 @@ export class RepeatedCardsPage {
   }
 
   collections: any;
+  collections_rev: any;
   subscription: any;
 
   gotoCollection(idCollection){
@@ -34,6 +35,7 @@ export class RepeatedCardsPage {
   ionViewDidLoad() {
     this.dbhDb.getCollections().first().subscribe(collections=>{
       this.collections = collections;
+      this.collections_rev = this.collections.reverse();
     });
   }
   
