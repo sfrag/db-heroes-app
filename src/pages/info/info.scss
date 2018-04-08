@@ -1,3 +1,36 @@
 page-info {
-
+    .info-wrapper{
+        background-color: rgba(0,0,0, 0.5);
+        color: white;
+        font-family: Abel;
+        .info-tittle{
+            color: #ffba7f;
+            font-weight: 800;
+        }
+        .info-gotit{
+            margin: 0;
+            padding: 15px;
+            background-color: darkcyan;
+            h5{
+                font-size: 1.5rem;
+            }
+            h3{
+                font-size: 2.5rem;
+                text-align: center;
+            }
+        }
+        .info-total{
+            margin: 0;
+            padding: 15px;
+            background-color: #ffce6147;
+            color: white;
+            h5{
+                font-size: 1.5rem;
+            }
+            h3{
+                font-size: 2.5rem;
+                text-align: center;
+            }
+        }
+    }
 }

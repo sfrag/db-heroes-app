@@ -14,15 +14,22 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>
-    <h5>Total number of collections</h5>
-    <h2>{{numberofCollections}}</h2>
-    <h5>Número de colecciones completadas</h5>
-    <h2>{{numberofCollections}}</h2>
-    <h5>Colección{{collection}}</h5>
-    <h2>"{{TotalCards}}"  /  "{{userCards}}"</h2>
-    <ion-row>
-        <ion-col></ion-col>
-    </ion-row>
-  </h2>
+    
+  <ion-list>
+    <ion-item class="info-wrapper" *ngFor="let collection of totalCards.reverse()">
+      
+      <div>
+          <h3 class="info-tittle">Collection</h3>
+          <h2 class="info-collection">{{collection.collection_id}}</h2>
+      </div>  
+      <div class="info-gotit" item-end>
+          <h5>Got it</h5>
+          <h3>{{collection.collection_have_cards}}</h3>
+      </div>
+      <div class="info-total" item-end>
+          <h5>Total</h5>
+          <h3>{{collection.collection_total_cards}}</h3>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
