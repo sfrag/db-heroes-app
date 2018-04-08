@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import 'rxjs/add/operator/first';
 
+import { InfoPage } from '../info/info';
+
 /**
  * Generated class for the RepeatedCardsPage page.
  *
@@ -18,15 +20,17 @@ import 'rxjs/add/operator/first';
 })
 export class RepeatedCardsPage {
   
+  collections: any;
+  collections_rev: any;
+  subscription: any;
+  private collectionsinfo;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private dbhDb: FirebaseDbProvider) {
+      this.collectionsinfo = InfoPage;
   }
-
-  collections: any;
-  collections_rev: any;
-  subscription: any;
 
   gotoCollection(idCollection){
       this.navCtrl.push(idCollection+'Page');
@@ -37,6 +41,10 @@ export class RepeatedCardsPage {
       this.collections = collections;
       this.collections_rev = this.collections.reverse();
     });
+  }
+
+  gotoPage(){
+    this.navCtrl.push(InfoPage);
   }
   
   ngOnDestroy(){
