@@ -15,12 +15,19 @@
 </ion-header>
   
 <ion-content padding>
+    
+    
+    <button style="z-index: 99999"ion-button (click)="showBanner()">Show Banner</button>
+    
 
     <div class="home-menu" (click)="gotoPage(collections)">
         <div class="home-menu-titles"><span>COLLECTIONS</span></div>
     </div>
     <div class="home-menu" (click)="gotoPage(cardsearch)">
         <div class="home-menu-titles">SEARCH CARDS</div>
+    </div>
+    <div class="home-menu" (click)="gotoPage(cardchange)">
+        <div class="home-menu-titles">CARDS CHANGE</div>
     </div>
     <!-- <div class="home-menu" (click)="gotoPage(collectorsrank)">
         <p class="home-menu-titles">COLLECTORS RANKING</p>

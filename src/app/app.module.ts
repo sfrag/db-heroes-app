@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AdMobFree } from '@ionic-native/admob-free';
 
 import { MyApp } from './app.component';
 
@@ -18,7 +19,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { FCM } from '@ionic-native/fcm';
 import { CardsProvider } from '../providers/cards/cards';
 import { CardPreviewModalPage } from '../pages/card-preview-modal/card-preview-modal';
 
@@ -73,10 +73,10 @@ var firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    AdMobFree,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     FirebaseDbProvider,
     AuthProvider,
-    FCM,
     CardsProvider
   ]
 })

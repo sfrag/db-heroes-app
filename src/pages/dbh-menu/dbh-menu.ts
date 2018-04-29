@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free';
 
 import { CardSearchPage } from '../card-search/card-search';
 import { RepeatedCardsPage } from '../repeated-cards/repeated-cards';
@@ -25,12 +26,28 @@ export class DbhMenuPage {
   private collectionsinfo;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
+    public admob: AdMobFree, 
     public navParams: NavParams) {
       this.rootPage = RepeatedCardsPage;
       this.collections = RepeatedCardsPage;
       this.cardsearch = CardSearchPage;
       this.collectionsinfo = InfoPage;
+    }
+  
+  showBanner() {
+    let bannerConfig: AdMobFreeBannerConfig = {
+      isTesting: true, // Remove in production
+      autoShow: true
+      //id: ca-app-pub-8242370848921742~3459518738
+    };
+
+    this.admob.banner.config(bannerConfig);
+
+    this.admob.banner.prepare().then(() => {
+      console.log ("funciona o no?");
+    }).catch(e => console.log(e));
+
   }
 
   gotoPage(page){
