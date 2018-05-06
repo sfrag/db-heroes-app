@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 
 import { CardSearchPage } from '../pages/card-search/card-search';
 import { RepeatedCardsPage } from '../pages/repeated-cards/repeated-cards';
+import { CardchangePage } from '../pages/cardchange/cardchange';
 import { InfoPage } from '../pages/info/info';
 import { CollectionsPopoverPage } from '../pages/collections-popover/collections-popover';
 
@@ -49,6 +50,7 @@ var firebaseConfig = {
   declarations: [
     MyApp,
     CardSearchPage,
+    CardchangePage,
     RepeatedCardsPage,
     CollectionsPopoverPage,
     CardPreviewModalPage,
@@ -66,6 +68,7 @@ var firebaseConfig = {
     MyApp,
     CardSearchPage,
     RepeatedCardsPage,
+    CardchangePage,
     CollectionsPopoverPage,
     CardPreviewModalPage,
     InfoPage, 

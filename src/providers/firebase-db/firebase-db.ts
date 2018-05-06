@@ -27,6 +27,10 @@ export class FirebaseDbProvider {
     return this.afDB.list('/users/' + this.auth.getUser());
   }
 
+  getUsers(){
+    return this.afDB.list('/users');
+  }
+
   getCollections(){
     return this.afDB.list('/collections');
   }

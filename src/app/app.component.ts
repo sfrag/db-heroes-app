@@ -10,6 +10,7 @@ import { AuthProvider } from '../providers/auth/auth';
 
 import { CardSearchPage } from '../pages/card-search/card-search';
 import { RepeatedCardsPage } from '../pages/repeated-cards/repeated-cards';
+import { CardchangePage } from '../pages/cardchange/cardchange';
 import { InfoPage } from '../pages/info/info';
 import { DbhMenuPage } from '../pages/dbh-menu/dbh-menu';
 
@@ -37,6 +38,7 @@ export class MyApp {
       this.pages = [
         { title: 'Home', component: DbhMenuPage },
         { title: 'Collections', component: RepeatedCardsPage },
+        { title: 'Change Cards', component: CardchangePage },
         { title: 'Searcher', component: CardSearchPage },
         { title: 'Info', component: InfoPage}
       ];
