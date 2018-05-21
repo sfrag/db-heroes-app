@@ -9,7 +9,7 @@ import 'rxjs/add/operator/first';
 import * as _ from 'lodash';
 
 /**
- * Generated class for the UnivmispromosPage page.
+ * Generated class for the Gdm1Page page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -17,10 +17,10 @@ import * as _ from 'lodash';
 
 @IonicPage()
 @Component({
-  selector: 'page-univmispromo',
-  templateUrl: 'univmispromo.html',
+  selector: 'page-univmis2',
+  templateUrl: 'univmis2.html',
 })
-export class UnivmispromoPage {
+export class Univmis2Page {
 
   cards: any;
   ucards: any;
@@ -79,7 +79,7 @@ export class UnivmispromoPage {
   ionViewDidLoad(){
     this.dbCards.loadcards().subscribe(cards => {
       //get cards
-      this.cards = cards[51].cards;
+      this.cards = cards[50].cards;
       this.dbCards.loadusercards().subscribe(ucards => {
           
         this.ucards = ucards;
