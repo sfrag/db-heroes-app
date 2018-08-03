@@ -12,15 +12,15 @@ function appendObjTo(thatArray, objToAppend){
     return Object.freeze(thatArray.concat(objToAppend));
 }
 
-fs.readdirSync('cards_resources/GM/PROMO3').forEach((file) => {
+fs.readdirSync('cards_resources/UNIVMIS/UNIVMIS3').forEach((file) => {
     console.log(file);
     file2 = file.slice(0, -4);
     var myobject = {
-        collection: "PROMO3",
+        collection: "UNIVMIS3",
         counter: 0,
         description: "Dragon Ball Heroes Card",
         id: file2,
-        url: "http://www.todoeduspain.com/collections/PROMO3/" + file
+        url: "http://www.dragonball-heroes.com/collections/UNIVMIS3/" + file
     }
 
     array = appendObjTo(array, myobject);

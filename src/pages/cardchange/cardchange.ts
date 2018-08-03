@@ -19,6 +19,8 @@ import 'rxjs/add/operator/first';
 export class CardchangePage {
 
   usersList: any;
+  userCards: any;
+  numberOfCards: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -30,9 +32,11 @@ export class CardchangePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CardchangePage');
+    
     this.dbhDb.getUsers().first().subscribe(users=>{
       this.usersList = users;
+      for(let i = 0; i<this.usersList.length; i++)
+        this.usersList[i].length
     })
-  }
-
+  }  
 }

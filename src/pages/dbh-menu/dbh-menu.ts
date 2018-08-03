@@ -46,15 +46,16 @@ export class DbhMenuPage {
     console.log('ionViewDidLoad DbhMenuPage');
 
     let bannerConfig: AdMobFreeBannerConfig = {
-      //isTesting: true, // Remove in production
+      isTesting: false, // Remove in production
       autoShow: true,
-      id: "ca-app-pub-8242370848921742~3459518738"
+      /* id: "ca-app-pub-8242370848921742~3459518738" */
+      id: "ca-app-pub-8242370848921742/6283038915"
     };
 
     this.admob.banner.config(bannerConfig);
 
     this.admob.banner.prepare().then(() => {
-      //success
+      this.admob.banner.show()
     }).catch(e => console.log(e));
 
   }

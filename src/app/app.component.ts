@@ -38,7 +38,9 @@ export class MyApp {
       this.pages = [
         { title: 'Home', component: DbhMenuPage },
         { title: 'Collections', component: RepeatedCardsPage },
-        { title: 'Change Cards', component: CardchangePage },
+        // CARDS CHANGE
+        { title: 'Change Cards', component: CardchangePage }, 
+        // CARDS CHANGE
         { title: 'Searcher', component: CardSearchPage },
         { title: 'Info', component: InfoPage}
       ];
