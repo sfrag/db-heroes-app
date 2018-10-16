@@ -16,13 +16,30 @@
 <ion-content padding>
   <ion-list>  
     <ion-grid>
-        <ion-row>
-          <ion-col *ngFor="let fusers of usersList">
-            <div>
-              <h2 class="info-collection">{{fusers.email}}</h2>
-            </div>  
+      <ion-row>
+        <ion-col col-6>
+          Users
+        </ion-col>
+        <ion-col col-6>
+            Repeated cards
           </ion-col>
       </ion-row>
+      <ion-row>
+          
+        </ion-row>
+        <ion-row *ngFor="let fusers of usersList">
+          <ion-col col-6 > 
+            <div>
+              <h5 class="cardchange-users" class="info-collection">{{fusers.email}}</h5>
+            </div> 
+          </ion-col>
+          <ion-col col-6 >
+              <div>
+                <h5 class="cardchange-users" class="info-collection">{{numberOfCards}}</h5>
+              </div> 
+            </ion-col>
+      </ion-row>
+      
     </ion-grid>
   </ion-list>
 </ion-content>
