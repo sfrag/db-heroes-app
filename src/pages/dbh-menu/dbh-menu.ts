@@ -22,8 +22,8 @@ import { InfoPage } from '../info/info';
 export class DbhMenuPage {
   
   private rootPage;
-  private collections; //Cardslistpage
-  private cardsearch;  //RepeatedCardsPage
+  public collections; //Cardslistpage
+  public cardsearch;  //RepeatedCardsPage
   private cardchange;
   private collectionsinfo;
 

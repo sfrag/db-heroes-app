@@ -39,7 +39,7 @@ export class MyApp {
         { title: 'Home', component: DbhMenuPage },
         { title: 'Collections', component: RepeatedCardsPage },
         // CARDS CHANGE
-        { title: 'Change Cards', component: CardchangePage }, 
+        //{ title: 'Change Cards', component: CardchangePage }, 
         // CARDS CHANGE
         { title: 'Searcher', component: CardSearchPage },
         { title: 'Info', component: InfoPage}
